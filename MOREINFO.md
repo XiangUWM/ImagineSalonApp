@@ -1,6 +1,6 @@
 # ImagineSalonApp
 
-## Benchmarking
+## More Information
 
 In order for this project to be a success, we need to develop a consistency plan for performance. 
 
@@ -53,4 +53,33 @@ As previously mentioned, these will occur twice a week. An efficient scrum meeti
 These meetings will go by much faster if you have these responses prepared. This is just a way to fill everyone in on what you're doing. 
 
 #### Communication in JIRA
+
+For our group to get the best possible use out of JIRA, I can share some tips that I've collected through my use of it. 
+
+When handling a ticket/issue/sub-task, keep in mind that we all have to peer-review each other's work. Putting comments in the work log is the best way to let each other know what's going on. It seriously helps to open up a simple notepad application and use the template I've made below.
+
+
+**Example Template for Work Log**
+
+Issue Name: XIAN-001 - Connect Slim Framework to MySQL Database 
+
+Current Date: February 29, 2016
+
+Current Time: 4:55pm
+
+Start Timestamp: February 28, 2016 10:36pm
+
+End Timestamp: February 29, 2016 4:50pm
+
+
+Issue File Location: Folder/SubFolder/File.js, Folder/AnotherSubFolder/AnotherFile.html
+
+Issue Line Location: File.js lines 118-125, AnotherFile.js lines 36-48
+
+
+What needed to be fixed: The Slim Framework needed to be connected to the MySQL database. 
+
+How it has been fixed: I declared the foo and the bar. Then afterwards I implemented the foo and called the bar. Subsequently, I was able to get an output for the bar. Once I did that, I was able to connect the database. 
+
+What still needs to be fixed: Line 120 of File.js is calling the wrong bar. It keeps calling global bar. I cannot figure out why. 
 
