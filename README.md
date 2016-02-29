@@ -26,12 +26,13 @@ These are the links to your Google Drive folders where your repositories should 
 | No. | Week  | Period                   |
 | --- |:----:| -------------------------:|
 | 1   | 6    | February 29th - March 4th |
-| 2   | 6-7  | March 5th - March 9th     |
+| 2   | 6-7  | March 5th  - March 9th    |
 | 3   | 7-8  | March 10th - March 14th   |
 | 4   | 8    | March 15th - March 19th   |
-| 5   | 6    | March 20th - March 24th   |
-| 6   | 6    | March 25th - March 4th    |
-| 7   | 8    | March 15th - March 19th   |
-| 8   | 8    | March 15th - March 19th   |
-| 9   | 8    | March 15th - March 19th   |
-| 10  | 13   | March 15th - March 19th   |
+| 5   | 8-9  | March 20th - March 24th   |
+| 6   | 9-10 | March 25th - March 29th   |
+| 7   | 10   | March 30th - April 3rd    |
+| 8   | 11   | April 4th  - April 8th    |
+| 9   | 11-12| April 9th  - April 13th   |
+| 10  | 12-13| April 14th - April 18th   |
+| 11  | 13   | April 19th - April 23rd   |
