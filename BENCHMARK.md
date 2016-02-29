@@ -34,4 +34,10 @@ We will need to:
 + CSS
 + Google Drive
 + Google Hangouts
++ Atlassian HipChat
 + GitHub
+
+### Communication 
+
+We are required by the course to commuicate in group meetings two times per week at minimum that will take the place of daily sprint meetings. We need to choose a time for everyone to be available to hold these meetings on Google Hangouts. In addition to the twice-per-week status meetings. We will need to access HipChat regularly for task and activity planning updates as Hangouts does not incorporate sprint information from JIRA. As time continues, we will phase out the usage of Hangouts and work strictly on HipChat for increased workflow efficiency. 
+
