@@ -19,3 +19,19 @@ We will need to:
 + Migrate the data for the staff and 250 customers to the proposed system to demonstrate functionality. 
 + Demonstrate usage with a series of tutorial videos. 
 
+### Implementation
+
+#### Tech Stack
++ Text editor (i.e.: Atom.io, Brackets, Dreamweaver, Notepad++)
++ Apache server (i.e.: WAMP(for Windows), MAMP, or XAMP(for iOS))
++ Atlassian JIRA
++ PHP
++ MySQL
++ JavaScript
++ jQuery
++ Bootstrap
++ HTML
++ CSS
++ Google Drive
++ Google Hangouts
++ GitHub
