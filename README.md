@@ -14,9 +14,9 @@ These are the links to your Google Drive folders where your repositories should 
 
 ### Contact Information
 
-| Name   | UWM E-mail         | Google e-mail           |
-| ------ |:------------------:| -----------------------:|
-| Josh   | [looperj@uwm.edu]  | [ssjveggitto@gmail.com] |
-| Kyle   | [klinkk@uwm.edu]   | [kykmaz@gmail.com]      |
-| Mason  | [masonmay@uwm.edu] | [masonmay23@gmail.com]  |
-| Omie   | [orwalls@uwm.edu]  | [omierwalls@gmail.com]  |
+| Name   | UWM E-mail       | Google e-mail         |
+| ------ |:----------------:| ---------------------:|
+| Josh   | looperj@uwm.edu  | ssjveggitto@gmail.com |
+| Kyle   | klinkk@uwm.edu   | kykmaz@gmail.com      |
+| Mason  | masonmay@uwm.edu | masonmay23@gmail.com  |
+| Omie   | orwalls@uwm.edu  | omierwalls@gmail.com  |
