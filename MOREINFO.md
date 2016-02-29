@@ -118,14 +118,14 @@ Origin
 
 #### 12-step Issue Completion To-Do List: 
 + Check for updates via JIRA
-+ Assign yourself to the issue if this is a new issue
-+ Start a work log in notepad or JIRA
-+ Rebase your master from origin
-+ Create your branch if this is a new issue, or open the branch if it's already in your forked repository
-+ Rebase your branch from your master
-+ Solve the issue
-+ Add your files
-+ Commit your work with a short phrase like "Implemented Foo to Bar"
-+ Push your branch upstream to origin
-+ Submit your work log
-+ Push your issue to peer-review
++ Assign yourself to the issue in JIRA (if this is a new issue)
++ Start a work log in notepad or in JIRA
++ Rebase your master from origin in GitHub
++ Create your branch in GitHub if this is a new issue, or open the branch if it's already in your forked repository
++ Rebase your branch from your master in GitHub
++ Solve the issue in your text-editor
++ Add your files in GitHub
++ Commit your work with a short phrase like "Implemented Foo to Bar" in GitHub
++ Push your branch upstream to origin in GitHub
++ Submit your work log in JIRA
++ Push your issue to peer-review in JIRA
