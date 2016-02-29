@@ -2,7 +2,7 @@
 This is a repository for a salon scheduling and inventory web application. Fork this repository to your designated Google Drive folder in the Imagine Salon Project folder that I've shared with you. 
 
 ### Where to Fork this Repository
-These are the links to your Google Drive folders where you should fork your repositories. You can also view everyone else's folders through the links below. 
+These are the links to your Google Drive folders where you should fork your repositories. You can also view everyone else's folders through the links below. It's set up this way in case one of us need help or peer-reviewing. We can easily see what each other is working on. 
 
 **Josh:**  [Click here](https://drive.google.com/open?id=0B-j9IeoToBudNUd6TlZfaVNXblU)
 
@@ -22,6 +22,8 @@ These are the links to your Google Drive folders where you should fork your repo
 | Omie   | orwalls@uwm.edu  | omierwalls@gmail.com  |
 
 ### Sprint Schedule
+
+Sprints are five days long. We will have time for 11 sprints over the span of approx. 50 days. Eventhough the sprints are five days long, it won't actually take five days for us to individually complete our portions. 
 
 | No. | Week | Period                    |
 | --- |:---- | -------------------------:|
