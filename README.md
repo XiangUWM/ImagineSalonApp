@@ -2,7 +2,7 @@
 This is a repository for a salon scheduling and inventory web application. Fork this repository to your designated Google Drive folder in the Imagine Salon Project folder that I've shared with you. 
 
 ### Where to Fork this Repository
-These are the links to your Google Drive folders where you should fork your repositories. You can also view everyone else's folders through the links below. It's set up this way in case one of us need help or peer-reviewing. We can easily see what each other is working on. 
+These are the links to your Google Drive folders where you should fork your repositories. You can also view everyone else's folders through the links below. It's set up this way in case one of us need help or peer-reviewing. We can easily see what each other is working on. It's important to note when working on PHP, you have to fork your repository to your localhost's server. It is the only way to code and complie php as you're writing it. Once PHP has started being implemented, it might prove difficult to keep both apache and Google Drive folders up to date. 
 
 **Josh:**  [Click here](https://drive.google.com/open?id=0B-j9IeoToBudNUd6TlZfaVNXblU)
 
