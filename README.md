@@ -22,6 +22,7 @@ These are the links to your Google Drive folders where your repositories should 
 | Omie   | orwalls@uwm.edu  | omierwalls@gmail.com  |
 
 ### Sprint Schedule
+
 | #  | Week | Period                    |
 | -- |:----:| -------------------------:|
 | 1  |  6   | February 29th - March 4th |
