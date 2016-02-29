@@ -95,3 +95,35 @@ alert(s);
 **What still needs to be fixed:** Line 120 of File.js is calling the wrong bar. It keeps calling global bar. I cannot figure out why. 
 
 **How to test:** You need to put the foo in the bar function as (7), and then check the output. If foo = 7, then it works. 
+
+---
+### JIRA Issues and GitHub Branches
+
+Please make a new branch in GitHub for every issue you're working on. The reason for this is clarity. When we peer review each other's work, we can pull the branch named after the issue. This also helps your work from getting corrupted. Please do not make a branch off of a branch and please do not update your master branches to your recent work. Rebase your masters from the origin only. Soon as you commit your work, push it upstream to the origin, and send the issue to peer-review, it will be reviewed, and implemented right away for all of us to use and rebase our work off of. If you implement these methods, you will be able to work and need very little communication from the group. 
+
+####Example of the GitHub repository structure: 
+Origin
+  Omie_Master
+      Test-branch
+      XIAN-1_Branch-Name
+      XIAN-2_Branch-Name
+      XIAN-3_Branch-Name
+  Josh_Master
+      Test-branch
+      XIAN-1_Branch-Name
+      XIAN-4_Branch-Name
+      XIAN-5_Branch-Name
+
+#### 12-step Issue Completion To-Do List: 
++ Check for updates via JIRA
++ Assign yourself to the issue if this is a new issue
++ Start a work log in notepad or JIRA
++ Rebase your master from origin
++ Create your branch if this is a new issue, or open the branch if it's already in your forked repository
++ Rebase your branch from your master
++ Solve the issue
++ Add your files
++ Commit your work with a short phrase like "Implemented Foo to Bar"
++ Push your branch upstream to origin
++ Submit your work log
++ Push your issue to peer-review
