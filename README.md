@@ -23,7 +23,7 @@ These are the links to your Google Drive folders where your repositories should 
 
 ### Sprint Schedule
 
-| #  | Week | Period                    |
+| No.| Week | Period                    |
 | -- |:----:| -------------------------:|
 | 1  |  6   | February 29th - March 4th |
 | 2  | 6-7  | March 5th - March 9th     |
