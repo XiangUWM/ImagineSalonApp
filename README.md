@@ -2,7 +2,7 @@
 This is a repository for a salon scheduling and inventory web application. Fork this repository to your designated Google Drive folder in the Imagine Salon Project folder that I've shared with you. 
 
 ### Where to Fork this Repository
-These are the links to your Google Drive folders where your repositories should be forked. You can also view everyone else's folders through the links below. 
+These are the links to your Google Drive folders where you should fork your repositories. You can also view everyone else's folders through the links below. 
 
 **Josh:**  [Click here](https://drive.google.com/open?id=0B-j9IeoToBudNUd6TlZfaVNXblU)
 
@@ -23,8 +23,8 @@ These are the links to your Google Drive folders where your repositories should 
 
 ### Sprint Schedule
 
-| No. | Week  | Period                   |
-| --- |:----:| -------------------------:|
+| No. | Week | Period                    |
+| --- |:---- | -------------------------:|
 | 1   | 6    | February 29th - March 4th |
 | 2   | 6-7  | March 5th  - March 9th    |
 | 3   | 7-8  | March 10th - March 14th   |
@@ -36,3 +36,5 @@ These are the links to your Google Drive folders where your repositories should 
 | 9   | 11-12| April 9th  - April 13th   |
 | 10  | 12-13| April 14th - April 18th   |
 | 11  | 13   | April 19th - April 23rd   |
+
+**Please Note: ** *Weeks 14-16 will be for demonstrations and deliverables. Week 17 will likely be the grading period.*
