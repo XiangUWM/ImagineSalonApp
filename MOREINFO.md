@@ -58,8 +58,8 @@ For our group to get the best possible use out of JIRA, I can share some tips th
 
 When handling a ticket/issue/sub-task, keep in mind that we all have to peer-review each other's work. Putting comments in the work log is the best way to let each other know what's going on. It seriously helps to open up a simple notepad application and use the template I've made below. Sometimes you forget to create a work log for what you've done. Opening a work log in your notepad soon as you assign yourself to a ticket helps you keep track of everything you've done so you can accurately report your work. 
 
-
-**Example Template for Work Log**
+---
+##### Example Template for Work Log
 
 **Issue Name:** XIAN-001 - Connect Slim Framework to MySQL Database 
 
