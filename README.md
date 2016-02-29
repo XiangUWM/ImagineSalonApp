@@ -37,4 +37,4 @@ These are the links to your Google Drive folders where you should fork your repo
 | 10  | 12-13| April 14th - April 18th   |
 | 11  | 13   | April 19th - April 23rd   |
 
-**Please Note: ** *Weeks 14-16 will be for demonstrations and deliverables. Week 17 will likely be the grading period.*
+*Please Note: Weeks 14-16 will be for demonstrations and deliverables. Week 17 will likely be the grading period.*
