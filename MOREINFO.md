@@ -62,24 +62,27 @@ When handling a ticket/issue/sub-task, keep in mind that we all have to peer-rev
 **Example Template for Work Log**
 
 Issue Name: XIAN-001 - Connect Slim Framework to MySQL Database 
-
 Current Date: February 29, 2016
-
 Current Time: 4:55pm
-
 Start Timestamp: February 28, 2016 10:36pm
-
 End Timestamp: February 29, 2016 4:50pm
 
-
 Issue File Location: Folder/SubFolder/File.js, Folder/AnotherSubFolder/AnotherFile.html
-
 Issue Line Location: File.js lines 118-125, AnotherFile.js lines 36-48
-
 
 What needed to be fixed: The Slim Framework needed to be connected to the MySQL database. 
 
 How it has been fixed: I declared the foo and the bar. Then afterwards I implemented the foo and called the bar. Subsequently, I was able to get an output for the bar. Once I did that, I was able to connect the database. 
 
+```javascript
+var foo = "This is the foo.";
+var bar = function(foo) {
+  return foo;
+}
+console.log(bar(foo));
+alert(s);
+```
+
 What still needs to be fixed: Line 120 of File.js is calling the wrong bar. It keeps calling global bar. I cannot figure out why. 
 
+How to test: You need to put the foo in the bar function as (7), and then check the output. If foo = 7, then it works. 
