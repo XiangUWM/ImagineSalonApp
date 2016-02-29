@@ -39,5 +39,18 @@ We will need to:
 
 ### Communication 
 
-We are required by the course to commuicate in group meetings two times per week at minimum that will take the place of daily sprint meetings. We need to choose a time for everyone to be available to hold these meetings on Google Hangouts. In addition to the twice-per-week status meetings. We will need to access HipChat regularly for task and activity planning updates as Hangouts does not incorporate sprint information from JIRA. As time continues, we will phase out the usage of Hangouts and work strictly on HipChat for increased workflow efficiency. 
+We are required by the course to commuicate in group meetings two times per week at minimum that will take the place of daily sprint meetings. We need to choose a time for everyone to be available to hold these meetings on Google Hangouts. In addition to the twice-per-week status meetings. We will need to access HipChat regularly for task and activity planning updates as Hangouts does not incorporate sprint information from JIRA. As time continues, we will phase out the usage of Hangouts and work strictly on HipChat for increased workflow efficiency. Please schedule 20 uninterrupted minutes for the scrum meetings.
+
+The first meeting we will need to address introductions, inform each other of our experience levels, ask questions, and give individual expectations of the project. 
+
+#### Daily Scrum Meetings
+
+As previously mentioned, these will occur twice a week. An efficient scrum meeting addresses the following: 
++ What did you do since the last scrum meeting?
++ What will you do until the next scrum meeting?
++ Are there any impediments in your way?
+
+These meetings will go by much faster if you have these responses prepared. This is just a way to fill everyone in on what you're doing. 
+
+#### Communication in JIRA
 
