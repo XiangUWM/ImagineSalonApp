@@ -11,3 +11,12 @@ These are the links to your Google Drive folders where your repositories should 
 **Mason:** [Click here](https://drive.google.com/open?id=0B-j9IeoToBudOVVOa3B3aWY5SVE)
 
 **Omie:**  [Click here](https://drive.google.com/open?id=0B-j9IeoToBudVDNqYlFNaC1vMTA)
+
+### Contact Information
+
+| Name   | UWM E-mail         | Google e-mail           |
+| ------ |:------------------:| -----------------------:|
+| Josh   | [looperj@uwm.edu]  | [ssjveggitto@gmail.com] |
+| Kyle   | [klinkk@uwm.edu]   | [kykmaz@gmail.com]      |
+| Mason  | [masonmay@uwm.edu] | [masonmay23@gmail.com]  |
+| Omie   | [orwalls@uwm.edu]  | [omierwalls@gmail.com]  |
