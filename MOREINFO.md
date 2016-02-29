@@ -102,6 +102,7 @@ alert(s);
 Please make a new branch in GitHub for every issue you're working on. The reason for this is clarity. When we peer review each other's work, we can pull the branch named after the issue. This also helps your work from getting corrupted. Please do not make a branch off of a branch and please do not update your master branches to your recent work. Rebase your masters from the origin only. Soon as you commit your work, push it upstream to the origin, and send the issue to peer-review, it will be reviewed, and implemented right away for all of us to use and rebase our work off of. If you implement these methods, you will be able to work and need very little communication from the group. 
 
 ####Example of the GitHub repository structure: 
+<pre>
 Origin
   Omie_Master
       Test-branch
@@ -113,6 +114,7 @@ Origin
       XIAN-1_Branch-Name
       XIAN-4_Branch-Name
       XIAN-5_Branch-Name
+</pre>
 
 #### 12-step Issue Completion To-Do List: 
 + Check for updates via JIRA
