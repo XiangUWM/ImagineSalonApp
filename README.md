@@ -23,16 +23,22 @@ These are the links to your Google Drive folders where your repositories should 
 
 ### Sprint Schedule
 
-| No.| Week | Period                    |
-| -- |:----:| -------------------------:|
-| 1  | 6    | February 29th - March 4th |
-| 2  | 6-7  | March 5th - March 9th     |
-| 3  | 7-8  | March 10th - March 14th   |
-| 4  | 8    | March 15th - March 19th   |
-| 5  | 6    | March 20th - March 24th   |
-| 6  | 6    | March 25th - March 4th    |
-| 7  | 8    | March 15th - March 19th   |
-| 8  | 8    | March 15th - March 19th   |
-| 9  | 8    | March 15th - March 19th   |
-| 10 | 13   | March 15th - March 19th   |
+| No. | Week  | Period                   |
+| --- |:----:| -------------------------:|
+| 1   | 6    | February 29th - March 4th |
+| 2   | 6-7  | March 5th - March 9th     |
+| 3   | 7-8  | March 10th - March 14th   |
+| 4   | 8    | March 15th - March 19th   |
+| 5   | 6    | March 20th - March 24th   |
+| 6   | 6    | March 25th - March 4th    |
+| 7   | 8    | March 15th - March 19th   |
+| 8   | 8    | March 15th - March 19th   |
+| 9   | 8    | March 15th - March 19th   |
+| 10  | 13   | March 15th - March 19th   |
 
+| Name   | UWM E-mail       | Google e-mail         |
+| ------ |:----------------:| ---------------------:|
+| Josh   | looperj@uwm.edu  | ssjveggitto@gmail.com |
+| Kyle   | klinkk@uwm.edu   | kykmaz@gmail.com      |
+| Mason  | masonmay@uwm.edu | masonmay23@gmail.com  |
+| Omie   | orwalls@uwm.edu  | omierwalls@gmail.com  |
