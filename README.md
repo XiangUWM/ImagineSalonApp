@@ -25,18 +25,18 @@ These are the links to your Google Drive folders where you should fork your repo
 
 Sprints are five days long. We will have time for 11 sprints over the span of approx. 50 days. Eventhough the sprints are five days long, it won't actually take five days for us to individually complete our portions. 
 
-| No. | Week | Period                    |
-| --- |:---- | -------------------------:|
-| 1   | 6    | February 29th - March 4th |
-| 2   | 6-7  | March 5th  - March 9th    |
-| 3   | 7-8  | March 10th - March 14th   |
-| 4   | 8    | March 15th - March 19th   |
-| 5   | 8-9  | March 20th - March 24th   |
-| 6   | 9-10 | March 25th - March 29th   |
-| 7   | 10   | March 30th - April 3rd    |
-| 8   | 11   | April 4th  - April 8th    |
-| 9   | 11-12| April 9th  - April 13th   |
-| 10  | 12-13| April 14th - April 18th   |
-| 11  | 13   | April 19th - April 23rd   |
+| No. | Week | Period                    | Description 
+| --- |:---: | :------------------------:| ---------------------------------:|
+| 1   | 6    | February 29th - March 4th | Project Startup & Inventory Build |
+| 2   | 6-7  | March 5th  - March 9th    | Basic Customer Management Build   |
+| 3   | 7-8  | March 10th - March 14th   | Basic Appointment Build           |
+| 4   | 8    | March 15th - March 19th   | Scheduling Build                  |
+| 5   | 8-9  | March 20th - March 24th   | Results Filtering                 |
+| 6   | 9-10 | March 25th - March 29th   | More Features                     |
+| 7   | 10   | March 30th - April 3rd    | Output Screens                    |
+| 8   | 11   | April 4th  - April 8th    | Client-side Booking               |
+| 9   | 11-12| April 9th  - April 13th   | Advanced Settings                 |
+| 10  | 12-13| April 14th - April 18th   | Finishing Touches                 |
+| 11  | 13   | April 19th - April 23rd   | Additional Deliverables           |
 
 *Please Note: Weeks 14-16 will be for demonstrations and deliverables. Week 17 will likely be the grading period.*
