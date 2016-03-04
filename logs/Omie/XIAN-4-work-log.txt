@@ -18,4 +18,12 @@ How it has been fixed: Unable to load an actual MVC framework due to the SOIS we
 
 What still needs to be fixed: Front-end libraries need to be added with npm.
 
-How to test: Go to the domain. A welcome page should appear. 
+How to test: You should see the following folders in place: 
+
+model/data
+controller/
+view/css
+view/js/jquery
+pages/home
+
+* If you do not see some of the View folders (view/js/jquery & view/css), then that means there are no files present in the system. There is not an error. As long as the model/ view/ and controller/ folders appear, the basic layout is created. 
