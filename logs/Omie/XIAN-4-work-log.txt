@@ -2,20 +2,20 @@ Issue Name: XIAN-001 - Connect Slim Framework to MySQL Database
 
 Current Date: March 4, 2016
 
-Current Time: 10:18 AM CST
+Time at Acceptance: 10:18 AM CST
 
-Start Timestamp: March 4, 2016
+Start Timestamp: March 4, 2016 01:18 PM CST
 
-End Timestamp: March 4, 2016
+End Timestamp: March 4, 2016 05:15 PM CST
 
-Issue File Location: COMPOSER.json
+Issue File Location: model/, view/, controller/, logs/, view/css, view/js, view/js/jquery, view/pages/home.html
 
 Issue Line Location: N/a
 
-What needed to be fixed: The Slim Framework needed to be loaded to the server.
+What needed to be fixed: The MVC layout needed to be created.
 
-How it has been fixed: I required the Slim/SlimStarter framework package through Composer, and then I ran the autoloader to install the package. 
+How it has been fixed: Unable to load an actual MVC framework due to the SOIS webspace failing server requirements, I've fashioned an MVC layout and created a database connection template to give the project some sort of foundation. 
 
-What still needs to be fixed: Nothing, the framework is fully installed. 
+What still needs to be fixed: Front-end libraries need to be added with npm.
 
 How to test: Go to the domain. A welcome page should appear. 
