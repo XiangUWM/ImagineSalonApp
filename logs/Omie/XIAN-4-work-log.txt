@@ -1,0 +1,21 @@
+Issue Name: XIAN-001 - Connect Slim Framework to MySQL Database
+
+Current Date: March 4, 2016
+
+Current Time: 10:18 AM CST
+
+Start Timestamp: March 4, 2016
+
+End Timestamp: March 4, 2016
+
+Issue File Location: COMPOSER.json
+
+Issue Line Location: N/a
+
+What needed to be fixed: The Slim Framework needed to be loaded to the server.
+
+How it has been fixed: I required the Slim/SlimStarter framework package through Composer, and then I ran the autoloader to install the package. 
+
+What still needs to be fixed: Nothing, the framework is fully installed. 
+
+How to test: Go to the domain. A welcome page should appear. 
