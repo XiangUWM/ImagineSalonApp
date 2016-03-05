@@ -1,21 +1,15 @@
 <?php
 if ( !class_exists( 'DB' ) ) {
-    // DB Class
 	class DB {
-        // DB Object Constuctor
 		public function __construct($user, $password, $database, $host = 'localhost') {
 			$this->user = $user;
 			$this->password = $password;
 			$this->database = $database;
 			$this->host = $host;
 		}
-        
-        // DB Connect Function - Connects to named Database
 		protected function connect() {
 			return new mysqli($this->host, $this->user, $this->password, $this->database);
 		}
-        
-        // DB Query Function - Calls connect() and then queries the Database while sorting the results into Array rows
 		public function query($query) {
 			$db = $this->connect();
 			$result = $db->query($query);
@@ -26,8 +20,6 @@ if ( !class_exists( 'DB' ) ) {
 			
 			return $results;
 		}
-        
-        // DB Insert Function - Insert data into the database 
 		public function insert($table, $data, $format) {
 			// Check for $table or $data not set
 			if ( empty( $table ) || empty( $data ) ) {
@@ -64,8 +56,6 @@ if ( !class_exists( 'DB' ) ) {
 			
 			return false;
 		}
-        
-        // DB Insert Function - Update data in the database 
 		public function update($table, $data, $format, $where, $where_format) {
 			// Check for $table or $data not set
 			if ( empty( $table ) || empty( $data ) ) {
@@ -122,8 +112,6 @@ if ( !class_exists( 'DB' ) ) {
 			
 			return false;
 		}
-        
-        // DB Insert Function - Select data from the database 
 		public function select($query, $data, $format) {
 			// Connect to the database
 			$db = $this->connect();
@@ -139,7 +127,7 @@ if ( !class_exists( 'DB' ) ) {
 			array_unshift($data, $format);
 			
 			//Dynamically bind values
-			call_user_func_array( array( $stmt, 'bind_param'), $this->ref_values($data));
+			$stmt->bind_param( array( $format, $this->ref_values($data)));
 			
 			//Execute the query
 			$stmt->execute();
@@ -153,8 +141,6 @@ if ( !class_exists( 'DB' ) ) {
 			}
 			return $results;
 		}
-        
-        // DB Delete Function - Delete data from the database         
 		public function delete($table, $id) {
 			// Connect to the database
 			$db = $this->connect();
@@ -207,6 +193,5 @@ if ( !class_exists( 'DB' ) ) {
 		}
 	}
 }
-
 $db = new DB('root', '', 'test');
-print_r($db->select('SELECT * FROM objects WHERE ID = ?', array(10), array('%d')));
+print_r($db->select('SELECT * FROM users WHERE id = 1', array(10), array('%d')));
