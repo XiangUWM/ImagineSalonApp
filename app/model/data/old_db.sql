@@ -18,7 +18,6 @@ CREATE TABLE `customer` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `customer` WRITE;
-/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
 
 INSERT INTO `customer` (`customer_id`, `first`, `last`, `email`, `address`, `city`, `state`, `zip`, `phone`)
 VALUES
@@ -45,7 +44,6 @@ CREATE TABLE `appointment` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `apontment` WRITE;
-/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
 
 INSERT INTO `appointment` (`appointment_id`, `service_id`, `customer_id`, `staff_id`, `status_code`, `date`, `start_time`, `end_time`)
 VALUES
@@ -72,7 +70,6 @@ CREATE TABLE `staff` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `staff` WRITE;
-/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
 
 INSERT INTO `staff` (`staff_id`, `first`, `last`, `email`, `address`, `city`, `state`, `zip`, `phone`, `role_id`)
 VALUES

@@ -773,7 +773,59 @@ VALUES
     ('2182', 'Kreidler', 'Janelle', '89992 E 15th St', 'Alliance', 'NE', '69301', '308-726-2182', '308-250-6987', 'janellek @cox.net', 1000), 
     ('6498', 'Dean', 'Chaz', '61556 W 20th Ave', 'Seattle', 'WA', '98104', '206-711-6498', '206-395-6284', 'chazd@yahoo.com', 3000), 
     ('4842', 'Stafford', 'Lee', '63 E Aurora Dr', 'Orlando', 'FL', '32804', '407-413-4842', '407-557-8857', 'lees@aol.com', 2000);
+
+LOCK TABLES `status` WRITE;
+
+INSERT INTO `status` (`status_code`, `name`)
+VALUES
+	(100, 'Available'),
+    (200, 'Unavailable'),
+    (300, 'Ordered'),
+    (400, 'In-Stock'),
+    (500, 'Out-of-Stock'),
+    (600, 'Shipped'),
+    (700, 'Scheduled'),
+    (800, 'Confirmed'),
+    (900, 'Active'),
+    (1000, 'Completed'); 
     
+LOCK TABLES `add_on_service` WRITE;
+    
+INSERT INTO `add_on_service` (`add_on_id`, `name`, `timeblock`)
+VALUES
+	(1000, 'Deep Condition', 45),
+    (2000, 'Clarifying Treatment', 45);
+    
+INSERT INTO `service` (`service_id`, `name`, `category`, `service_code`, `timeblock`, `role_id`, `price`)
+VALUES
+	(),
+    (),
+    ();
+    
+INSERT INTO `product` (`product_id`, `name`, `upc_code`, `category`, `size`, `vendor_id`, `status_code`, `wholesale_cost`, `retail_price`, `brand`)
+VALUES
+	(),
+    (),
+    ();
+    
+INSERT INTO `vendor` (`vendor_id`, `name`, `order_details`, `notes`)
+VALUES
+	(),
+    (),
+    ();
+    
+INSERT INTO `resource` (`resource_id`, `name`, `description`, `notes`, `type`, `availability_id`)
+VALUES
+	(),
+    (),
+    ();  
+
+INSERT INTO `appointment` (`appointment_id`, `service_id`, `customer_id`, `staff_id`, `status_code`, `date`, `start_time`, `end_time`)
+VALUES
+	(),
+    (),
+    ();
+
 LOCK TABLES `example_phpmvc` WRITE;
 
 INSERT INTO `example_phpmvc` (`group_id`, `group_parent`, `group_name`)
