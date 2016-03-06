@@ -344,34 +344,66 @@ UNLOCK TABLES;
 ALTER TABLE customer
 FOREIGN KEY (discount_type) 
 REFERENCES discount(discount_type),
-
-FOREIGN KEY (preferred_staff)
-REFERENCES staff(staff_id);
+    FOREIGN KEY (preferred_staff)
+    REFERENCES staff(staff_id);
 
 ALTER TABLE appointment
 FOREIGN KEY (service_id)
 REFERENCES service(service_id),
-
-FOREIGN KEY (customer_id)
-REFERENCES customer(customer_id),
-
-FOREIGN KEY (promotion_id)
-REFERENCES promotion(promotion_id),
-
-FOREIGN KEY (staff_id)
-REFERENCES staff(staff_id),
-
-FOREIGN KEY (status_code)
-REFERENCES status(status_code);
+    FOREIGN KEY (customer_id)
+    REFERENCES customer(customer_id),
+    FOREIGN KEY (promotion_id)
+    REFERENCES promotion(promotion_id),
+    FOREIGN KEY (staff_id)
+    REFERENCES staff(staff_id),
+    FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
 
 ALTER TABLE staff
 FOREIGN KEY (role_id)
 REFERENCES role(role_id),
-
+    FOREIGN KEY (availability_id)
+    REFERENCES availability(availability_id),
+    FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE service
+FOREIGN KEY (add_on)
+REFERENCES add_on_service(add_on_id),
+    FOREIGN KEY (role_id)
+    REFERENCES role(role_id),
+    FOREIGN KEY (availability_id)
+    REFERENCES availability(availability_id)
+    FOREIGN KEY (status_code)
+    REFERENCES status(status_code)
+    
+ALTER TABLE product
+FOREIGN KEY (vendor_id)
+REFERENCES vendor(vendor_id),
+    FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE resource
 FOREIGN KEY (availability_id)
-REFERENCES availability(availability_id);
+REFERENCES availability(availability_id),
+    FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE promotion
+FOREIGN KEY (discount_type)
+REFERENCES discount(discount_type);
 
+ALTER TABLE shift
+FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id);
 
+ALTER TABLE availability
+FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id),
+    FOREIGN KEY (resource_id)
+    REFERENCES resource(resource_id),
+    FOREIGN KEY (service_id)
+    REFERENCES service(service_id);
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
