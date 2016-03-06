@@ -61,7 +61,7 @@ CREATE TABLE `service` (
     `add_on`        int(4),
     `timeblock`     int(3) NOT NULL,
     `role_id`       char(2) NOT NULL,
-    `price`         decimal(5,2) NOT NULL,
+    `base_price`         decimal(5,2) NOT NULL,
     `availability_id` int(4),
     `status_code`     int(4),
     PRIMARY KEY       (`service_id`)
@@ -795,12 +795,46 @@ INSERT INTO `add_on_service` (`add_on_id`, `name`, `timeblock`)
 VALUES
 	(1000, 'Deep Condition', 45),
     (2000, 'Clarifying Treatment', 45);
+    (3000, 'Haircut', 30);
     
 INSERT INTO `service` (`service_id`, `name`, `category`, `service_code`, `timeblock`, `role_id`, `price`)
 VALUES
+	(1000, 'Mens Haircut', 'Haircuts', 'MEHC', 45, 1000, 39),
+    (1010, 'Womens Haircut', 'Haircuts', 'WOHC', 45, 1000, 39),
+    (1020, 'Childrens Haircut', 'Haircuts', 'CHHC', 45, 1000, 32),
+    (2000, 'Shampoo & Style', 'Styles', 'SHST', 30, 1000, 30), (2010, 'Formal Styles', 'Styles', 'FOST', 60, 1000, 65), 
+    (3000, 'Full Color Service', 'Color Services', 'COSE', 90, 1000, 65),
+    (3010, 'Full Highlight Service', 'Color Services', 'HISE', 90, 1000, 65),
+    (3020, 'Partial Color Service', 'Color Services', 'PCSE', 90, 1000, 65),
+    (3030, 'Partial Highlight Service', 'Color Services', 'PHSE', 90, 1000, 65),
+    (3040, 'Corective Color Service', 'Color Services', 'CCSE', 60, 1000, 45),
+    (4000, 'Perm', 'Chemical Services', 'PECS', 90, 1000, 65),
+    (4010, 'Brazillian Blowout', 'Chemical Services', 'BBCS', 180, 1000, 100),
+    (5000, 'Deep Conditioning Treatment', 'Treatments', 'DCTR', 45, 1000, 45),
+    (5010, 'Clarifying Treatment', 'Treatments', 'CLTR', 45, 1000, 35),
+    (6000, 'Manicure', 'Nail Services', 'MANS', 60, 1000, 35),
+    (6010, 'Pedicure', 'Nail Services', 'PENS', 60, 1000, 35),
+    (6020, 'Manicure & Pedicure', 'Nail Services', 'MPNS', 120, 1000, 55),
+    (6030, 'Nail Repair', 'Nail Services', 'NRNS', 15, 1000, 20),
+    (6040, 'Polish Change', 'Nail Services', 'PCNS', 15, 1000, 25),
+    (6050, 'Silk Wrap', 'Nail Services', 'SWNS', 90, 1000, 45),
+    (6060, 'Silk Wrap w/ Tips', 'Nail Services', 'STNS', 120, 1000, 55),
+    (7000, 'Brow Wax', 'Waxing Services', 'BRWS', 15, 1000, 15),
+    (7010, 'Lip Wax', 'Waxing Services', 'LIWS', 15, 1000, 15),
+    (7020, 'Chin Wax', 'Waxing Services', 'CIWS', 15, 1000, 15),
+    (7030, 'Back Wax', 'Waxing Services', 'BAWS', 60, 1000, 45),
+    (7040, 'Chest Wax', 'Waxing Services', 'CHWS', 60, 1000, 45),
+    (7050, 'Full Leg Wax', 'Waxing Services', 'FLWS', 60, 1000, 50),
+    (7060, 'Bikini Wax', 'Waxing Services', 'BKWS', 60, 1000, 55),
+    (7070, 'Brazillian Wax', 'Waxing Services', 'BRWS', 60, 1000, 65),
+    (7080, 'Half Leg Wax', 'Waxing Services', 'HLWS', 30, 1000, 25),
+    (7090, 'Under Arm Wax', 'Waxing Services', 'UAWS', 30, 1000, 25);
+  
+INSERT INTO `vendor` (`vendor_id`, `name`, `order_details`, `notes`)
+VALUES
 	(),
     (),
-    ();
+    ();  
     
 INSERT INTO `product` (`product_id`, `name`, `upc_code`, `category`, `size`, `vendor_id`, `status_code`, `wholesale_cost`, `retail_price`, `brand`)
 VALUES
@@ -808,11 +842,7 @@ VALUES
     (),
     ();
     
-INSERT INTO `vendor` (`vendor_id`, `name`, `order_details`, `notes`)
-VALUES
-	(),
-    (),
-    ();
+
     
 INSERT INTO `resource` (`resource_id`, `name`, `description`, `notes`, `type`, `availability_id`)
 VALUES
