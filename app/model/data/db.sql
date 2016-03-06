@@ -83,7 +83,6 @@ CREATE TABLE `staff` (
     `phone` varchar(12) NOT NULL,
     `role_id` int(4) NOT NULL,
     `services` varchar(255),
-    `availability_id` int(4),
     `status_code` int(4),
     PRIMARY KEY (`staff_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -248,6 +247,112 @@ VALUES
 	(),
     (),
     ();
+    
+DROP TABLE IF EXISTS `role`;
+
+CREATE TABLE `role` (
+    `role_id` int(4) NOT NULL AUTO_INCREMENT,
+    `name` varchar(35) NOT NULL,
+    PRIMARY KEY (`role_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
+
+INSERT INTO `role` (`role_id`, `name`)
+VALUES
+	(),
+    (),
+    ();   
+    
+DROP TABLE IF EXISTS `availability`;
+
+CREATE TABLE `availability` (
+    `availability_id` int(4) NOT NULL AUTO_INCREMENT,
+    `staff_id` int(4),
+    `resource_id` int(4),
+    `service_id` int(4),
+    `monday_start` timestamp NOT NULL,
+    `tuesday_start` timestamp NOT NULL,
+    `wedday_start` timestamp NOT NULL,
+    `thursday_start` timestamp NOT NULL,
+    `friday_start` timestamp NOT NULL,
+    `saturday_start` timestamp NOT NULL,
+    `sunday_start` timestamp NOT NULL,
+    `monday_end` timestamp NOT NULL,
+    `tuesday_end` timestamp NOT NULL,
+    `wedday_end` timestamp NOT NULL,
+    `thursday_end` timestamp NOT NULL,
+    `friday_end` timestamp NOT NULL,
+    `saturday_end` timestamp NOT NULL,
+    `sunday_end` timestamp NOT NULL,
+    
+    PRIMARY KEY (`availability_id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `availability` WRITE;
+/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
+
+INSERT INTO `availability` (`availability_id`, `staff_id`, `resource_id`, `service_id`, `monday_start`, `monday_end`, `tuesday_start`, `tuesday_end`, `wednesday_start`, `wednesday_end`, `thursday_start`, `thursday_end`, `friday_start`, `friday_end`, `saturday_start`, `saturday_end`, `sunday_start`, `sunday_end`)
+VALUES
+	(),
+    (),
+    ();
+
+DROP TABLE IF EXISTS `discount`;
+
+CREATE TABLE `discount` (
+    `discount_type` int(4) NOT NULL AUTO_INCREMENT,
+    `name` varchar(35) NOT NULL,
+    `percentage` decimal(5,2),
+    `percentage` decimal(5,2),
+    PRIMARY KEY (`discount_type`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `discount` WRITE;
+/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
+
+INSERT INTO `discount` (`discount_type`, `name`, `percentage`, `amount`)
+VALUES
+	(),
+    (),
+    ();
+    
+DROP TABLE IF EXISTS `status`;
+
+CREATE TABLE `status` (
+    `status_code` int(4) NOT NULL AUTO_INCREMENT,
+    `name` varchar(35) NOT NULL,
+    PRIMARY KEY (`status_code`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `status` WRITE;
+/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
+
+INSERT INTO `status` (`status_code`, `name`)
+VALUES
+	(),
+    (),
+    (); 
+    
+DROP TABLE IF EXISTS `change`;
+
+CREATE TABLE `change` (
+    `change_id` int(4) NOT NULL AUTO_INCREMENT,
+    `name` varchar(35) NOT NULL,
+    `table_name` varchar(25) NOT NULL,
+    `column_name` varchar(25) NOT NULL,
+    `previous_value` varchar(255) NOT NULL,
+    `current_value` varchar(255) NOT NULL,
+    `change_timestamp` timestamp WITH LOCAL TIMEZONE DEFAULT current_timestamp,
+    `is_undone` boolean DEFAULT false,
+    PRIMARY KEY (`status_code`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `change` WRITE;
+/*!40000 ALTER TABLE `example_phpmvc` DISABLE KEYS */;
+    
+
 
 /*!40000 ALTER TABLE `example_phpmvc` ENABLE KEYS */;
 UNLOCK TABLES;
