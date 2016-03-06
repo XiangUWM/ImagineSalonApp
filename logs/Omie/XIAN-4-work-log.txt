@@ -14,7 +14,7 @@ Issue Line Location: N/a
 
 What needed to be fixed: The MVC layout needed to be created.
 
-How it has been fixed: Unable to load an actual MVC framework due to the SOIS webspace failing server requirements, I've fashioned an MVC layout and created a database connection template to give the project some sort of foundation. 
+How it has been fixed: Unable to load an actual MVC framework due to the SOIS webspace failing server requirements (this took the most of my time trying to find a solution to the issue), I've fashioned an MVC layout and created a database connection template to give the project some sort of foundation. 
 
 What still needs to be fixed: Front-end libraries need to be added with npm.
 
