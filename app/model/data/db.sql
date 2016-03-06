@@ -37,7 +37,7 @@ CREATE TABLE `appointment` (
 ); 
 
 CREATE TABLE `staff` (
-    `staff_id`      int(4) NOT NULL AUTO_INCREMENT,
+    `staff_id`      int(4) NOT NULL,
     `first`         varchar(35) NOT NULL,
     `last`          varchar(35) NOT NULL,
     `email`         varchar(50),
@@ -54,13 +54,13 @@ CREATE TABLE `staff` (
 ); 
     
 CREATE TABLE `service` (
-    `service_id`    int(4) NOT NULL AUTO_INCREMENT,
+    `service_id`    int(4) NOT NULL,
     `name`          varchar(35) NOT NULL,
     `category`      varchar(35) NOT NULL,
     `service_code`  char(4) NOT NULL,
     `add_on`        int(4),
     `timeblock`     int(3) NOT NULL,
-    `role_id`       char(2) NOT NULL,
+    `role_id`       int(4) NOT NULL,
     `base_price`         decimal(5,2) NOT NULL,
     `availability_id` int(4),
     `status_code`     int(4),
@@ -69,8 +69,8 @@ CREATE TABLE `service` (
 
 CREATE TABLE `product` (
     `product_id`    int(4) NOT NULL AUTO_INCREMENT,
-    `name`          varchar(35) NOT NULL,
-    `upc_code`      int(25) NOT NULL,
+    `name`          varchar(50) NOT NULL,
+    `upc_code`      bigint(12) NOT NULL,
     `category`      varchar(35),
     `size`          varchar(35),
     `notes`         varchar(255),
@@ -84,7 +84,7 @@ CREATE TABLE `product` (
 ); 
 
 CREATE TABLE `vendor` (
-    `vendor_id`     int(4) NOT NULL AUTO_INCREMENT,
+    `vendor_id`     int(4) NOT NULL,
     `name`          varchar(35) NOT NULL,
     `order_details` varchar(255),
     `notes`         varchar(255),
@@ -92,7 +92,7 @@ CREATE TABLE `vendor` (
 ); 
 
 CREATE TABLE `resource` (
-    `resource_id` int(4) NOT NULL AUTO_INCREMENT,
+    `resource_id` int(4) NOT NULL,
     `name`              varchar(35) NOT NULL,
     `description`       varchar(255),
     `notes`             varchar(255),
@@ -126,14 +126,14 @@ CREATE TABLE `shift` (
 ); 
 
 CREATE TABLE `add_on_service` (
-    `add_on_id` int(4) NOT NULL AUTO_INCREMENT,
+    `add_on_id` int(4) NOT NULL,
     `name`      varchar(35) NOT NULL,
     `timeblock` int(3) NOT NULL,
     PRIMARY KEY (`add_on_id`)
 ); 
 
 CREATE TABLE `role` (
-    `role_id`   int(4) NOT NULL AUTO_INCREMENT,
+    `role_id`   int(4),
     `name`      varchar(35) NOT NULL,
     PRIMARY KEY (`role_id`)
 ); 
@@ -742,7 +742,8 @@ VALUES
 	(1000, 'Mens Haircut', 'Haircuts', 'MEHC', 45, 1000, 39),
     (1010, 'Womens Haircut', 'Haircuts', 'WOHC', 45, 1000, 39),
     (1020, 'Childrens Haircut', 'Haircuts', 'CHHC', 45, 1000, 32),
-    (2000, 'Shampoo & Style', 'Styles', 'SHST', 30, 1000, 30), (2010, 'Formal Styles', 'Styles', 'FOST', 60, 1000, 65), 
+    (2000, 'Shampoo & Style', 'Styles', 'SHST', 30, 1000, 30), 
+    (2010, 'Formal Styles', 'Styles', 'FOST', 60, 1000, 65), 
     (3000, 'Full Color Service', 'Color Services', 'COSE', 90, 1000, 65),
     (3010, 'Full Highlight Service', 'Color Services', 'HISE', 90, 1000, 65),
     (3020, 'Partial Color Service', 'Color Services', 'PCSE', 90, 1000, 65),
@@ -907,7 +908,7 @@ LOCK TABLES `appointment` WRITE;
 INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_timestamp`)
 VALUES
 	(1000, 107, 1235, 700, '2016-03-21 08:30'),
-    (2020, 282, 2182, 800, '2016-03-18 15:45'),
+    (2010, 282, 2182, 800, '2016-03-18 15:45'),
     (3000, 58, 7516, 900, '2016-03-06  15:30');
 
 LOCK TABLES `example_phpmvc` WRITE;
