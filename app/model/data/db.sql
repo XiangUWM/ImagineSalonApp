@@ -1,35 +1,20 @@
-# ************************************************************
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-# Dump of table example_phpmvc
-# ------------------------------------------------------------
-
-
 DROP TABLE IF EXISTS `customer`;
 
 CREATE TABLE `customer` (
-    `customer_id` int(4) NOT NULL AUTO_INCREMENT,
-    `first` varchar(35) NOT NULL,
-    `last` varchar(35) NOT NULL,
-    `email` varchar(50),
-    `address` varchar(75),
-    `city` varchar(50),
-    `state` char(2),
-    `zip` char(5),
-    `phone` varchar(12),
-    `notes` varchar(255),
-    `prefered_staff` int(4),
-    `discount_type` int(4),
-    `referral_source` varchar(50),
-    PRIMARY KEY (`customer_id`)
+    `customer_id`   int(4) NOT NULL AUTO_INCREMENT,
+    `first`         varchar(35) NOT NULL,
+    `last`          varchar(35) NOT NULL,
+    `email`         varchar(50),
+    `address`       varchar(75),
+    `city`          varchar(50),
+    `state`         char(2),
+    `zip`           char(5),
+    `phone`         varchar(12),
+    `notes`         varchar(255),
+    `prefered_staff`    int(4),
+    `discount_type`     int(4),
+    `referral_source`   varchar(50),
+    PRIMARY KEY         (`customer_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `customer` WRITE;
@@ -44,20 +29,19 @@ VALUES
 DROP TABLE IF EXISTS `appointment`;
 
 CREATE TABLE `appointment` (
-    `appointment_id` int(8) NOT NULL AUTO_INCREMENT,
-    `service_id` int(4),
-    `customer_id` int(4) NOT NULL,
-    `promotion_id` int(4),
-    `notes` varchar(255),
-    `start_time` time NOT NULL,
-    `end_time` time,
-    `repeat` boolean,
-    `staff_id` int(4),
-    `resources` varchar(255),
-    `date` date NOT NULL,
-    `status_code` int(4),
-    `check_in` timestamp WITH LOCAL TIMEZONE DEFAULT NULL,
-    PRIMARY KEY (`appointment_id`)
+    `appointment_id`    int(8) NOT NULL AUTO_INCREMENT,
+    `service_id`        int(4),
+    `customer_id`       int(4) NOT NULL,
+    `promotion_id`      int(4),
+    `notes`             varchar(255),
+    `start_timestamp`   timestamp WITH LOCAL TIMEZONE NOT NULL,
+    `end_timestamp`     timestamp WITH LOCAL TIMEZONE,
+    `repeat`            boolean,
+    `staff_id`          int(4),
+    `resources`         varchar(255),
+    `status_code`       int(4),
+    `check_in`          timestamp WITH LOCAL TIMEZONE DEFAULT NULL,
+    PRIMARY KEY         (`appointment_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `apontment` WRITE;
@@ -72,19 +56,19 @@ VALUES
 DROP TABLE IF EXISTS `staff`;
 
 CREATE TABLE `staff` (
-    `staff_id` int(4) NOT NULL AUTO_INCREMENT,
-    `first` varchar(35) NOT NULL,
-    `last` varchar(35) NOT NULL,
-    `email` varchar(50),
-    `address` varchar(75),
-    `city` varchar(50),
-    `state` char(2),
-    `zip` char(5),
-    `phone` varchar(12) NOT NULL,
-    `role_id` int(4) NOT NULL,
-    `services` varchar(255),
-    `status_code` int(4),
-    PRIMARY KEY (`staff_id`)
+    `staff_id`      int(4) NOT NULL AUTO_INCREMENT,
+    `first`         varchar(35) NOT NULL,
+    `last`          varchar(35) NOT NULL,
+    `email`         varchar(50),
+    `address`       varchar(75),
+    `city`          varchar(50),
+    `state`         char(2),
+    `zip`           char(5),
+    `phone`         varchar(12) NOT NULL,
+    `role_id`       int(4) NOT NULL,
+    `services`      varchar(255),
+    `status_code`   int(4),
+    PRIMARY KEY     (`staff_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `staff` WRITE;
@@ -99,17 +83,17 @@ VALUES
 DROP TABLE IF EXISTS `service`;
 
 CREATE TABLE `service` (
-    `service_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `category` varchar(35) NOT NULL,
-    `service_code` char(4) NOT NULL,
-    `add_on` int(4),
-    `timeblock` int(3) NOT NULL,
-    `role_id` char(2) NOT NULL,
-    `price` decimal(5,2) NOT NULL,
+    `service_id`    int(4) NOT NULL AUTO_INCREMENT,
+    `name`          varchar(35) NOT NULL,
+    `category`      varchar(35) NOT NULL,
+    `service_code`  char(4) NOT NULL,
+    `add_on`        int(4),
+    `timeblock`     int(3) NOT NULL,
+    `role_id`       char(2) NOT NULL,
+    `price`         decimal(5,2) NOT NULL,
     `availability_id` int(4),
-    `status_code` int(4),
-    PRIMARY KEY (`service_id`)
+    `status_code`     int(4),
+    PRIMARY KEY       (`service_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `service` WRITE;
@@ -124,19 +108,19 @@ VALUES
 DROP TABLE IF EXISTS `product`;
 
 CREATE TABLE `product` (
-    `product_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `upc_code` int(25) NOT NULL,
-    `category` varchar(50),
-    `size` varchar(15),
-    `notes` varchar(255),
-    `vendor_id` int(4) NOT NULL,
-    `quantity` int(3) NOT NULL DEFAULT 0,
-    `status_code` int(4) NOT NULL,
+    `product_id`    int(4) NOT NULL AUTO_INCREMENT,
+    `name`          varchar(35) NOT NULL,
+    `upc_code`      int(25) NOT NULL,
+    `category`      varchar(35),
+    `size`          varchar(35),
+    `notes`         varchar(255),
+    `vendor_id`     int(4) NOT NULL,
+    `quantity`      int(3) NOT NULL DEFAULT 0,
+    `status_code`   int(4) NOT NULL,
     `wholesale_cost` decimal(5,2) NOT NULL,
-    `retail_price` decimal(5,2),
-    `brand` varchar(35) NOT NULL,
-    PRIMARY KEY (`product_id`)
+    `retail_price`   decimal(5,2),
+    `brand`          varchar(35) NOT NULL,
+    PRIMARY KEY      (`product_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `product` WRITE;
@@ -151,11 +135,11 @@ VALUES
 DROP TABLE IF EXISTS `vendor`;
 
 CREATE TABLE `vendor` (
-    `vendor_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
+    `vendor_id`     int(4) NOT NULL AUTO_INCREMENT,
+    `name`          varchar(35) NOT NULL,
     `order_details` varchar(255),
-    `notes` varchar(255),
-    PRIMARY KEY (`vendor_id`)
+    `notes`         varchar(255),
+    PRIMARY KEY     (`vendor_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `vendor` WRITE;
@@ -169,13 +153,13 @@ VALUES
 
 CREATE TABLE `resource` (
     `resource_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `description` varchar(255),
-    `notes` varchar(255),
-    `type` varchar(35) NOT NULL,
-    `availability_id` int(4),
-    `status_code` int(4),
-    PRIMARY KEY (`resouce_id`)
+    `name`              varchar(35) NOT NULL,
+    `description`       varchar(255),
+    `notes`             varchar(255),
+    `type`              varchar(35) NOT NULL,
+    `availability_id`   int(4),
+    `status_code`       int(4),
+    PRIMARY KEY         (`resouce_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `resource` WRITE;
@@ -188,17 +172,17 @@ VALUES
     ();
     
     CREATE TABLE `promotion` (
-    `promotion_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `description` varchar(255),
-    `start_date` date DEFAULT current_date,
-    `end_date` date,
-    `discount_type` int(4),
-    `available` boolean,
-    `limit` int(4),
-    `require_code` boolean,
-    `valid_codes` varchar(255),
-    `valid_services` varchar(255),
+    `promotion_id`      int(4) NOT NULL AUTO_INCREMENT,
+    `name`              varchar(35) NOT NULL,
+    `description`       varchar(255),
+    `start_date`        date DEFAULT current_date,
+    `end_date`          date,
+    `discount_type`     int(4),
+    `available`         boolean,
+    `limit`             int(4),
+    `require_code`      boolean,
+    `valid_codes`       varchar(255),
+    `valid_services`    varchar(255),
     PRIMARY KEY (`promotion_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -214,11 +198,11 @@ VALUES
 DROP TABLE IF EXISTS `shift`;
 
 CREATE TABLE `shift` (
-    `shift_id` int(4) NOT NULL AUTO_INCREMENT,
-    `shift_start` timestamp WITH LOCAL TIMEZONE NOT NULL,
-    `shift_end` timestamp,
-    `staff_id` int(4),
-    PRIMARY KEY (`shift_id`)
+    `shift_id`      int(4) NOT NULL AUTO_INCREMENT,
+    `shift_start`   timestamp WITH LOCAL TIMEZONE NOT NULL,
+    `shift_end`     timestamp,
+    `staff_id`      int(4),
+    PRIMARY KEY     (`shift_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `shift` WRITE;
@@ -234,7 +218,7 @@ DROP TABLE IF EXISTS `add_on_service`;
 
 CREATE TABLE `add_on_service` (
     `add_on_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
+    `name`      varchar(35) NOT NULL,
     `timeblock` int(3) NOT NULL,
     PRIMARY KEY (`add_on_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -251,8 +235,8 @@ VALUES
 DROP TABLE IF EXISTS `role`;
 
 CREATE TABLE `role` (
-    `role_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
+    `role_id`   int(4) NOT NULL AUTO_INCREMENT,
+    `name`      varchar(35) NOT NULL,
     PRIMARY KEY (`role_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -268,26 +252,25 @@ VALUES
 DROP TABLE IF EXISTS `availability`;
 
 CREATE TABLE `availability` (
-    `availability_id` int(4) NOT NULL AUTO_INCREMENT,
-    `staff_id` int(4),
-    `resource_id` int(4),
-    `service_id` int(4),
-    `monday_start` timestamp NOT NULL,
-    `tuesday_start` timestamp NOT NULL,
-    `wedday_start` timestamp NOT NULL,
-    `thursday_start` timestamp NOT NULL,
-    `friday_start` timestamp NOT NULL,
-    `saturday_start` timestamp NOT NULL,
-    `sunday_start` timestamp NOT NULL,
-    `monday_end` timestamp NOT NULL,
-    `tuesday_end` timestamp NOT NULL,
-    `wedday_end` timestamp NOT NULL,
-    `thursday_end` timestamp NOT NULL,
-    `friday_end` timestamp NOT NULL,
-    `saturday_end` timestamp NOT NULL,
-    `sunday_end` timestamp NOT NULL,
-    
-    PRIMARY KEY (`availability_id`)
+    `availability_id`   int(4) NOT NULL AUTO_INCREMENT,
+    `staff_id`          int(4),
+    `resource_id`       int(4),
+    `service_id`        int(4),
+    `monday_start`      timestamp NOT NULL,
+    `tuesday_start`     timestamp NOT NULL,
+    `wedday_start`      timestamp NOT NULL,
+    `thursday_start`    timestamp NOT NULL,
+    `friday_start`      timestamp NOT NULL,
+    `saturday_start`    timestamp NOT NULL,
+    `sunday_start`      timestamp NOT NULL,
+    `monday_end`        timestamp NOT NULL,
+    `tuesday_end`       timestamp NOT NULL,
+    `wedday_end`        timestamp NOT NULL,
+    `thursday_end`      timestamp NOT NULL,
+    `friday_end`        timestamp NOT NULL,
+    `saturday_end`      timestamp NOT NULL,
+    `sunday_end`        timestamp NOT NULL,
+    PRIMARY KEY         (`availability_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `availability` WRITE;
@@ -303,10 +286,10 @@ DROP TABLE IF EXISTS `discount`;
 
 CREATE TABLE `discount` (
     `discount_type` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `percentage` decimal(5,2),
-    `percentage` decimal(5,2),
-    PRIMARY KEY (`discount_type`)
+    `name`          varchar(35) NOT NULL,
+    `percentage`    decimal(5,2),
+    `percentage`    decimal(5,2),
+    PRIMARY KEY     (`discount_type`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `discount` WRITE;
@@ -322,8 +305,8 @@ DROP TABLE IF EXISTS `status`;
 
 CREATE TABLE `status` (
     `status_code` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    PRIMARY KEY (`status_code`)
+    `name`        varchar(35) NOT NULL,
+    PRIMARY KEY   (`status_code`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `status` WRITE;
@@ -338,15 +321,15 @@ VALUES
 DROP TABLE IF EXISTS `change`;
 
 CREATE TABLE `change` (
-    `change_id` int(4) NOT NULL AUTO_INCREMENT,
-    `name` varchar(35) NOT NULL,
-    `table_name` varchar(25) NOT NULL,
-    `column_name` varchar(25) NOT NULL,
-    `previous_value` varchar(255) NOT NULL,
-    `current_value` varchar(255) NOT NULL,
-    `change_timestamp` timestamp WITH LOCAL TIMEZONE DEFAULT current_timestamp,
-    `is_undone` boolean DEFAULT false,
-    PRIMARY KEY (`status_code`)
+    `change_id`         int(4) NOT NULL AUTO_INCREMENT,
+    `name`              varchar(35) NOT NULL,
+    `table_name`        varchar(35) NOT NULL,
+    `column_name`       varchar(35) NOT NULL,
+    `previous_value`    varchar(255) NOT NULL,
+    `current_value`     varchar(255) NOT NULL,
+    `change_timestamp`  timestamp WITH LOCAL TIMEZONE DEFAULT current_timestamp,
+    `is_undone`         boolean DEFAULT false,
+    PRIMARY KEY         (`status_code`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `change` WRITE;
