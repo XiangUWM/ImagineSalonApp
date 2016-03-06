@@ -37,7 +37,7 @@ CREATE TABLE `appointment` (
 ); 
 
 CREATE TABLE `staff` (
-    `staff_id`      int(4) NOT NULL AUTO_INCREMENT,
+    `staff_id`      int(4) NOT NULL,
     `first`         varchar(35) NOT NULL,
     `last`          varchar(35) NOT NULL,
     `email`         varchar(50),
@@ -54,14 +54,14 @@ CREATE TABLE `staff` (
 ); 
     
 CREATE TABLE `service` (
-    `service_id`    int(4) NOT NULL AUTO_INCREMENT,
+    `service_id`    int(4) NOT NULL,
     `name`          varchar(35) NOT NULL,
     `category`      varchar(35) NOT NULL,
     `service_code`  char(4) NOT NULL,
     `add_on`        int(4),
     `timeblock`     int(3) NOT NULL,
-    `role_id`       char(2) NOT NULL,
-    `price`         decimal(5,2) NOT NULL,
+    `role_id`       int(4) NOT NULL,
+    `base_price`         decimal(5,2) NOT NULL,
     `availability_id` int(4),
     `status_code`     int(4),
     PRIMARY KEY       (`service_id`)
@@ -69,14 +69,14 @@ CREATE TABLE `service` (
 
 CREATE TABLE `product` (
     `product_id`    int(4) NOT NULL AUTO_INCREMENT,
-    `name`          varchar(35) NOT NULL,
-    `upc_code`      int(25) NOT NULL,
+    `name`          varchar(50) NOT NULL,
+    `upc_code`      bigint(12) NOT NULL,
     `category`      varchar(35),
     `size`          varchar(35),
     `notes`         varchar(255),
     `vendor_id`     int(4) NOT NULL,
-    `quantity`      int(3) NOT NULL DEFAULT 0,
-    `status_code`   int(4) NOT NULL,
+    `quantity`      int(3) DEFAULT 0,
+    `status_code`   int(4) DEFAULT 400,
     `wholesale_cost` decimal(5,2) NOT NULL DEFAULT 0.00,
     `retail_price`   decimal(5,2) NOT NULL DEFAULT 0.00,
     `brand`          varchar(35) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE `product` (
 ); 
 
 CREATE TABLE `vendor` (
-    `vendor_id`     int(4) NOT NULL AUTO_INCREMENT,
+    `vendor_id`     int(4) NOT NULL,
     `name`          varchar(35) NOT NULL,
     `order_details` varchar(255),
     `notes`         varchar(255),
@@ -92,7 +92,7 @@ CREATE TABLE `vendor` (
 ); 
 
 CREATE TABLE `resource` (
-    `resource_id` int(4) NOT NULL AUTO_INCREMENT,
+    `resource_id` int(4) NOT NULL,
     `name`              varchar(35) NOT NULL,
     `description`       varchar(255),
     `notes`             varchar(255),
@@ -126,14 +126,14 @@ CREATE TABLE `shift` (
 ); 
 
 CREATE TABLE `add_on_service` (
-    `add_on_id` int(4) NOT NULL AUTO_INCREMENT,
+    `add_on_id` int(4) NOT NULL,
     `name`      varchar(35) NOT NULL,
     `timeblock` int(3) NOT NULL,
     PRIMARY KEY (`add_on_id`)
 ); 
 
 CREATE TABLE `role` (
-    `role_id`   int(4) NOT NULL AUTO_INCREMENT,
+    `role_id`   int(4),
     `name`      varchar(35) NOT NULL,
     PRIMARY KEY (`role_id`)
 ); 
@@ -193,68 +193,6 @@ CREATE TABLE `example_phpmvc` (
   PRIMARY KEY       (`group_id`)
 );
 
-ALTER TABLE customer
-ADD FOREIGN KEY (discount_type) 
-REFERENCES discount(discount_type),
-    ADD FOREIGN KEY (preferred_staff)
-    REFERENCES staff(staff_id);
-
-ALTER TABLE appointment
-ADD FOREIGN KEY (service_id)
-REFERENCES service(service_id),
-    ADD FOREIGN KEY (customer_id)
-    REFERENCES customer(customer_id),
-    ADD FOREIGN KEY (promotion_id)
-    REFERENCES promotion(promotion_id),
-    ADD FOREIGN KEY (staff_id)
-    REFERENCES staff(staff_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-
-ALTER TABLE staff
-ADD FOREIGN KEY (role_id)
-REFERENCES role(role_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE service
-ADD FOREIGN KEY (add_on)
-REFERENCES add_on_service(add_on_id),
-    ADD FOREIGN KEY (role_id)
-    REFERENCES role(role_id),
-    ADD FOREIGN KEY (availability_id)
-    REFERENCES availability(availability_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE product
-ADD FOREIGN KEY (vendor_id)
-REFERENCES vendor(vendor_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE resource
-ADD FOREIGN KEY (availability_id)
-REFERENCES availability(availability_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE promotion
-ADD FOREIGN KEY (discount_type)
-REFERENCES discount(discount_type);
-
-ALTER TABLE shift
-ADD FOREIGN KEY (staff_id)
-REFERENCES staff(staff_id);
-
-ALTER TABLE availability
-ADD FOREIGN KEY (staff_id)
-REFERENCES staff(staff_id),
-    ADD FOREIGN KEY (resource_id)
-    REFERENCES resource(resource_id),
-    ADD FOREIGN KEY (service_id)
-    REFERENCES service(service_id);
-    
 LOCK TABLES `customer` WRITE;
 
 INSERT INTO `customer` (`first`, `last`, `address`, `city`, `state`, `zip`, `phone`, `alt_phone`, `email`)
@@ -763,16 +701,16 @@ LOCK TABLES `staff` WRITE;
 
 INSERT INTO `staff` (`staff_id`, `first`, `last`, `address`, `city`, `state`, `zip`, `phone`, `alt_phone`, `email`, `role_id`)
 VALUES
-	 ('1805', 'Reimer', 'Rebecca', '8284 Hart St', 'Abilene', 'KS', '67410', '785-347-1805', '785-253-7049', 'rebeccar@hotmail.com', 1000), 
-    ('3571', 'Moore', 'Mel', '5 Washington St Apt 1', 'Roseville', 'CA', '95678', '916-920-3571', '916-459-2433', 'melm@ankeny.org', 1000), 
-    ('4118', 'Snyder', 'Lynn', '8 S Haven St', 'Daytona Beach', 'FL', '32114', '386-248-4118', '386-208-6976', 'lynns@gmail.com', 1000), 
-    ('7516', 'Franckowiak', 'Kim Marie', '9 Front St', 'Washington', 'DC', '20001', '202-646-7516', '202-276-6826', 'kim_marief @hixenbaugh.org', 1000), 
-    ('3294', 'Klug', 'Jenny', '1933 Packer Ave Apt 2', 'Novato', 'CA', '94945', '415-423-3294', '415-926-6089', 'jennyk@gmail.com', 1000), 
-    ('1235', 'Ludtke', 'Patrick', '67 Rv Cent', 'Boise', 'ID', '83709', '208-709-1235', '208-206-9848', 'patrickl@gillaspie.com', 1000), 
-    ('1454', 'Johnson', 'Colleen', '2 Sw Nyberg Rd', 'Elkhart', 'IN', '46514', '574-499-1454', '574-330-1884', 'colleenj@kampa.org', 1000), 
-    ('2182', 'Kreidler', 'Janelle', '89992 E 15th St', 'Alliance', 'NE', '69301', '308-726-2182', '308-250-6987', 'janellek @cox.net', 1000), 
-    ('6498', 'Dean', 'Chaz', '61556 W 20th Ave', 'Seattle', 'WA', '98104', '206-711-6498', '206-395-6284', 'chazd@yahoo.com', 3000), 
-    ('4842', 'Stafford', 'Lee', '63 E Aurora Dr', 'Orlando', 'FL', '32804', '407-413-4842', '407-557-8857', 'lees@aol.com', 2000);
+    (1805, 'Reimer', 'Rebecca', '8284 Hart St', 'Abilene', 'KS', '67410', '785-347-1805', '785-253-7049', 'rebeccar@hotmail.com', 1000), 
+    (3571, 'Moore', 'Mel', '5 Washington St Apt 1', 'Roseville', 'CA', '95678', '916-920-3571', '916-459-2433', 'melm@ankeny.org', 1000), 
+    (4118, 'Snyder', 'Lynn', '8 S Haven St', 'Daytona Beach', 'FL', '32114', '386-248-4118', '386-208-6976', 'lynns@gmail.com', 1000), 
+    (7516, 'Franckowiak', 'Kim Marie', '9 Front St', 'Washington', 'DC', '20001', '202-646-7516', '202-276-6826', 'kim_marief @hixenbaugh.org', 1000), 
+    (3294, 'Klug', 'Jenny', '1933 Packer Ave Apt 2', 'Novato', 'CA', '94945', '415-423-3294', '415-926-6089', 'jennyk@gmail.com', 1000), 
+    (1235, 'Ludtke', 'Patrick', '67 Rv Cent', 'Boise', 'ID', '83709', '208-709-1235', '208-206-9848', 'patrickl@gillaspie.com', 1000), 
+    (1454, 'Johnson', 'Colleen', '2 Sw Nyberg Rd', 'Elkhart', 'IN', '46514', '574-499-1454', '574-330-1884', 'colleenj@kampa.org', 1000), 
+    (2182, 'Kreidler', 'Janelle', '89992 E 15th St', 'Alliance', 'NE', '69301', '308-726-2182', '308-250-6987', 'janellek @cox.net', 1000), 
+    (6498, 'Dean', 'Chaz', '61556 W 20th Ave', 'Seattle', 'WA', '98104', '206-711-6498', '206-395-6284', 'chazd@yahoo.com', 3000), 
+    (4842, 'Stafford', 'Lee', '63 E Aurora Dr', 'Orlando', 'FL', '32804', '407-413-4842', '407-557-8857', 'lees@aol.com', 2000);
 
 LOCK TABLES `status` WRITE;
 
@@ -794,37 +732,184 @@ LOCK TABLES `add_on_service` WRITE;
 INSERT INTO `add_on_service` (`add_on_id`, `name`, `timeblock`)
 VALUES
 	(1000, 'Deep Condition', 45),
-    (2000, 'Clarifying Treatment', 45);
+    (2000, 'Clarifying Treatment', 45),
+    (3000, 'Haircut', 30);
     
-INSERT INTO `service` (`service_id`, `name`, `category`, `service_code`, `timeblock`, `role_id`, `price`)
-VALUES
-	(),
-    (),
-    ();
+LOCK TABLES `service` WRITE;
     
-INSERT INTO `product` (`product_id`, `name`, `upc_code`, `category`, `size`, `vendor_id`, `status_code`, `wholesale_cost`, `retail_price`, `brand`)
+INSERT INTO `service` (`service_id`, `name`, `category`, `service_code`, `timeblock`, `role_id`, `base_price`)
 VALUES
-	(),
-    (),
-    ();
-    
-INSERT INTO `vendor` (`vendor_id`, `name`, `order_details`, `notes`)
-VALUES
-	(),
-    (),
-    ();
-    
-INSERT INTO `resource` (`resource_id`, `name`, `description`, `notes`, `type`, `availability_id`)
-VALUES
-	(),
-    (),
-    ();  
+	(1000, 'Mens Haircut', 'Haircuts', 'MEHC', 45, 1000, 39),
+    (1010, 'Womens Haircut', 'Haircuts', 'WOHC', 45, 1000, 39),
+    (1020, 'Childrens Haircut', 'Haircuts', 'CHHC', 45, 1000, 32),
+    (2000, 'Shampoo & Style', 'Styles', 'SHST', 30, 1000, 30), 
+    (2010, 'Formal Styles', 'Styles', 'FOST', 60, 1000, 65), 
+    (3000, 'Full Color Service', 'Color Services', 'COSE', 90, 1000, 65),
+    (3010, 'Full Highlight Service', 'Color Services', 'HISE', 90, 1000, 65),
+    (3020, 'Partial Color Service', 'Color Services', 'PCSE', 90, 1000, 65),
+    (3030, 'Partial Highlight Service', 'Color Services', 'PHSE', 90, 1000, 65),
+    (3040, 'Corective Color Service', 'Color Services', 'CCSE', 60, 1000, 45),
+    (4000, 'Perm', 'Chemical Services', 'PECS', 90, 1000, 65),
+    (4010, 'Brazillian Blowout', 'Chemical Services', 'BBCS', 180, 1000, 100),
+    (5000, 'Deep Conditioning Treatment', 'Treatments', 'DCTR', 45, 1000, 45),
+    (5010, 'Clarifying Treatment', 'Treatments', 'CLTR', 45, 1000, 35),
+    (6000, 'Manicure', 'Nail Services', 'MANS', 60, 1000, 35),
+    (6010, 'Pedicure', 'Nail Services', 'PENS', 60, 1000, 35),
+    (6020, 'Manicure & Pedicure', 'Nail Services', 'MPNS', 120, 1000, 55),
+    (6030, 'Nail Repair', 'Nail Services', 'NRNS', 15, 1000, 20),
+    (6040, 'Polish Change', 'Nail Services', 'PCNS', 15, 1000, 25),
+    (6050, 'Silk Wrap', 'Nail Services', 'SWNS', 90, 1000, 45),
+    (6060, 'Silk Wrap w/ Tips', 'Nail Services', 'STNS', 120, 1000, 55),
+    (7000, 'Brow Wax', 'Waxing Services', 'BRWS', 15, 1000, 15),
+    (7010, 'Lip Wax', 'Waxing Services', 'LIWS', 15, 1000, 15),
+    (7020, 'Chin Wax', 'Waxing Services', 'CIWS', 15, 1000, 15),
+    (7030, 'Back Wax', 'Waxing Services', 'BAWS', 60, 1000, 45),
+    (7040, 'Chest Wax', 'Waxing Services', 'CHWS', 60, 1000, 45),
+    (7050, 'Full Leg Wax', 'Waxing Services', 'FLWS', 60, 1000, 50),
+    (7060, 'Bikini Wax', 'Waxing Services', 'BKWS', 60, 1000, 55),
+    (7070, 'Brazillian Wax', 'Waxing Services', 'BRWS', 60, 1000, 65),
+    (7080, 'Half Leg Wax', 'Waxing Services', 'HLWS', 30, 1000, 25),
+    (7090, 'Under Arm Wax', 'Waxing Services', 'UAWS', 30, 1000, 25);
+  
+LOCK TABLES `vendor` WRITE;
 
-INSERT INTO `appointment` (`appointment_id`, `service_id`, `customer_id`, `staff_id`, `status_code`, `date`, `start_time`, `end_time`)
+INSERT INTO `vendor` (`vendor_id`, `name`)
 VALUES
-	(),
-    (),
-    ();
+	(1000, 'Premier Beauty Systems'),
+    (2000, 'Beauty Craft'),
+    (3000, 'National Salon Services');  
+    
+LOCK TABLES `product` WRITE;
+
+INSERT INTO `product` (`vendor_id`, `brand`, `name`, `size`, `wholesale_cost`, `retail_price`, `upc_code`)
+VALUES
+(1000, 'Goldwell', 'Kerasilk Rich Shampoo', '8 oz', 9.29, 20.90, 127296424470),
+(1000, 'Goldwell', 'Kerasilk Rich Conditioner', '8 oz', 9.79, 22.03, 477832639590),
+(1000, 'Goldwell', 'Kerasilk Ultra Rich Shampoo ', '8 oz', 9.29, 20.90, 907511877828),
+(1000, 'Goldwell', 'Kerasilk Ultra Rich Conditoner', '8 oz', 9.79, 22.03, 926829489880),
+(1000, 'Goldwell', 'Sleek Perfection', '3 oz', 11.00, 24.75, 261823414825),
+(1000, 'Goldwell', 'Hot Form', '5 oz', 8.50, 19.12, 872077478562),
+(1000, 'Goldwell', 'Flat Marvel', '3 oz', 8.50, 19.12, 362034930382),
+(1000, 'Goldwell', 'Roughman', '3 oz', 8.50, 19.12, 164097469300),
+(1000, 'Goldwell', 'Unlimitor', '4 oz', 10.79, 24.28, 718338844367),
+(1000, 'Goldwell', 'Mellogoo', '3 oz', 10.29, 23.15, 798387357034),
+(1000, 'Goldwell', 'Sprayer Hair Sprayer', '8 oz', 10.79, 24.28, 791675744579),
+(1000, 'Goldwell', 'Lagoom Jam', '5 oz', 8.50, 19.12, 157784925308),
+(1000, 'Goldwell', 'Top Whip', '10 oz', 10.29, 23.15, 420869839378),
+(1000, 'Goldwell', 'Double Boost', '6 oz', 9.50, 21.37, 189854776952),
+(1000, 'Goldwell', 'Big Finish', '9 oz', 10.79, 24.28, 754464211874),
+(1000, 'Goldwell', 'Magic Finish', '9 oz', 9.00, 20.25, 292849183082),
+(1000, 'Goldwell', 'Diamond Gloss', '4 oz', 9.00, 20.25, 710326091387),
+(1000, 'Goldwell', 'Full Rebel', '3 oz', 13.99, 31.48, 306597988121),
+(2000, 'Unite', 'Volumizing Shampoo', '1 liter', 27.00, 60.75, 204979118425),
+(2000, 'Unite', 'Volumizing Shampoo', '10 oz', 12.50, 28.12, 457030021585),
+(2000, 'Unite', 'Volumizing Conditioner', '1 liter', 29.00, 65.25, 10099049657),
+(2000, 'Unite', 'Volumizing Conditioner', '10 oz', 13.50, 30.37, 441243567038),
+(2000, 'Unite', 'Smoothing Shampoo', '1 liter', 27.00, 60.75, 690547566395),
+(2000, 'Unite', 'Smoothing Shampoo', '10 oz', 12.50, 28.12, 993223156780),
+(2000, 'Unite', 'Smoothing Conditioner', '1 liter', 29.00, 65.25, 942902830430),
+(2000, 'Unite', 'Smoothing Conditioner', '10 oz', 13.50, 30.37, 353089076001),
+(2000, 'Unite', 'Moisturizing Shampoo', '1 liter', 27.00, 60.75, 371553134639),
+(2000, 'Unite', 'Moisturizing Shampoo', '10 oz', 13.50, 30.37, 210768929217),
+(2000, 'Unite', 'Moisturizing Conditioner', '1 liter', 29.00, 65.25, 553409304936),
+(2000, 'Unite', 'Moisturizing Conditioner', '10 oz', 13.50, 30.37, 817575542722),
+(2000, 'Unite', 'Weekender Shampoo', '1 liter', 26.50, 59.63, 515604717657),
+(2000, 'Unite', 'Weekender Shampoo', '8 oz', 11.00, 24.75, 590191673488),
+(2000, 'Unite', 'Blonda Shampoo', '8 oz', 12.50, 28.12, 758524261881),
+(2000, 'Unite', 'Blonda Shampoo', '2 oz', 4.50, 10.13, 161061131861),
+(2000, 'Unite', 'Blonda Conditioner', '8 oz', 13.50, 30.37, 287049117964),
+(2000, 'Unite', 'Blonda Conditioner', '2 oz', 4.50, 10.13, 242040420882),
+(2000, 'Unite', '7 Seconds Dry Shampoo', '3 oz', 13.00, 29.25, 652496007271),
+(2000, 'Unite', '7 Seconds Leave in Conditioner', '8 oz', 13.00, 29.25, 872613841202),
+(2000, 'Unite', '7 Seconds Leave in Conditioner', '2 oz', 4.75, 10.13, 296996555757),
+(2000, 'Unite', 'Beach Day', '8 oz', 12.50, 28.12, 762014904060),
+(2000, 'Unite', 'U Luxury Shampoo 8 oz', '8 oz', 17.50, 39.38, 102656908799),
+(2000, 'Unite', 'U Luxury Conditioner 8 oz', '8 oz', 19.50, 43.88, 328183905687),
+(2000, 'Unite', 'U Luxury Intense Mask', '6 oz', 30.00, 67.50, 300494969357),
+(2000, 'Unite', 'U Luxury Defrizz', '3 oz', 15.00, 33.75, 806531845592),
+(2000, 'Unite', 'U Luxury U Oil Argan', '3 oz', 20.00, 45.00, 54792184382),
+(2000, 'Unite', 'Expand Root Spray', '8 oz', 13.00, 29.25, 646429043729),
+(2000, 'Unite', 'Session Max Spray', '10 oz', 13.50, 30.37, 694082407281),
+(2000, 'Unite', 'Tricky Hair Spray', '7 oz', 13.50, 30.37, 686363468878),
+(2000, 'Unite', 'Tricky Lite Spray', '7 oz', 13.50, 30.37, 453033357393),
+(2000, 'Unite', 'Smooth & Shine', '3 oz', 12.00, 27.00, 480608658399),
+(2000, 'Unite', 'Elevate Mousse', '6 oz', 12.50, 28.12, 25928811635),
+(2000, 'Unite', 'Max Control Hair Spray', '10 oz', 13.00, 29.25, 647822650150),
+(2000, 'Unite', 'Go 365 Hair Spray', '10 oz', 12.00, 27.00, 566300510429),
+(2000, 'Unite', 'Expanda Dust', '8 oz', 12.00, 27.00, 91768338810),
+(2000, 'Unite', 'Shina Mist Spray', '4 oz', 11.50, 25.87, 792594936677),
+(2000, 'Unite', 'Conundrum Paste', '2 oz', 12.00, 27.00, 927664443851),
+(2000, 'Unite', 'Second Day', '2 oz', 11.50, 25.87, 748798073735),
+(2000, 'Unite', 'Smoothing Gift Bag', '1 bag', 29.00, 58.50, 86393671576),
+(3000, 'Moroccin', 'Moisture Repair Shampoo', '8 oz', 12.00, 27.00, 227566558867),
+(3000, 'Moroccin', 'Moisture Repair Conditioner', '8 oz', 12.50, 28.12, 919019856491),
+(3000, 'Moroccin', 'Hydrating Shampoo', '8 oz', 11.50, 25.87, 718873382546),
+(3000, 'Moroccin', 'Hydrating Conditioner', '8 oz', 12.00, 27.00, 774564438965),
+(3000, 'Moroccin', 'Extra Volume Shampoo', '8 oz', 12.00, 27.00, 51101812627),
+(3000, 'Moroccin', 'Extra Volume Conditioner', '8 oz', 12.50, 28.12, 637192695867),
+(3000, 'Moroccin', 'Smoothing Shampoo', '8 oz', 14.00, 31.50, 344624893274),
+(3000, 'Moroccin', 'Smoothing Conditioner', '8 oz', 14.50, 32.63, 574246705975),
+(3000, 'Moroccin', 'Moroccin Oil', '3 oz', 22.00, 49.50, 482527089305),
+(3000, 'Moroccin', 'Moroccin Oil', '1 oz', 8.50, 19.12, 741540414281),
+(3000, 'Moroccin', 'Moroccin Oil Lite', '3 oz', 22.00, 49.50, 622789966408),
+(3000, 'Moroccin', 'Morroccin Oil Lite', '1 oz', 8.50, 19.12, 215950558893),
+(3000, 'Moroccin', 'Hyrdrating Styling Cream', '10 oz', 17.00, 38.25, 514043293428),
+(3000, 'Moroccin', 'Intense Curl Cream', '10 oz', 17.00, 38.25, 612160380464),
+(3000, 'Moroccin', 'Curl Control Mousse', '8 oz', 14.50, 32.63, 916390243452),
+(3000, 'Moroccin', 'Styling Gel Medium', '6 oz', 10.00, 22.50, 793564316817),
+(3000, 'Moroccin', 'Molding Cream', '3 oz', 14.00, 31.50, 501372893807),
+(3000, 'Moroccin', 'Curl Defining Cream', '8 oz', 17.00, 38.25, 286277108360),
+(3000, 'Moroccin', 'Thickening Lotion', '3 oz', 14.50, 32.63, 538560669404),
+(3000, 'Moroccin', 'Root Boost', '8 oz', 14.50, 32.63, 305236345622),
+(3000, 'Moroccin', 'Volumizing Mousse', '8 oz', 14.95, 33.64, 633809675928),
+(3000, 'Moroccin', 'Luminous Hairspray Medium', '10 oz', 12.00, 27.00, 463329283055),
+(3000, 'Moroccin', 'Luminous Hairspray Strong', '10 oz', 12.00, 27.00, 253224969841),
+(3000, 'Moroccin', 'Luminous Hairspray Extra Strong', '10 oz', 12.00, 27.00, 691610307899),
+(3000, 'Morgan Taylor Polish', 'West Coast Cool', '1 bottle', 4.50, 10.13, 792311872356),
+(3000, 'Morgan Taylor Polish', 'Do You Harajuku', '1 bottle', 4.50, 10.13, 122651080135),
+(3000, 'Morgan Taylor Polish', 'Lip Service', '1 bottle', 4.50, 10.13, 885340578389),
+(3000, 'Morgan Taylor Polish', 'Ella of a Girl', '1 bottle', 4.50, 10.13, 951463086531),
+(3000, 'Morgan Taylor Polish', 'Prettier n Pink', '1 bottle', 4.50, 10.13, 587830201723),
+(3000, 'Morgan Taylor Polish', 'A Touch of Sass', '1 bottle', 4.50, 10.13, 162463628687),
+(3000, 'Morgan Taylor Polish', 'Take The Lead', '1 bottle', 4.50, 10.13, 828179013916),
+(3000, 'Morgan Taylor Polish', 'Bright Side', '1 bottle', 4.50, 10.13, 969875187614),
+(3000, 'Morgan Taylor Polish', 'Tan My Hide', '1 bottle', 4.50, 10.13, 216546361800),
+(3000, 'Morgan Taylor Polish', 'Beach Babe', '1 bottle', 4.50, 10.13, 812322194688),
+(3000, 'Morgan Taylor Polish', 'My Carriage Awaits', '1 bottle', 4.50, 10.13, 916838380043),
+(3000, 'Morgan Taylor Polish', 'Manga-round With Me', '1 bottle', 4.50, 10.13, 271006564609),
+(3000, 'Morgan Taylor Polish', 'Adorned In Diamonds', '1 bottle', 4.50, 10.13, 259810926392),
+(3000, 'Morgan Taylor Polish', 'Texas Me Later', '1 bottle', 4.50, 10.13, 664569854736),
+(3000, 'Morgan Taylor Polish', 'Need for Speed Top Coat', '1 bottle', 4.50, 10.13, 383991532493),
+(3000, 'Morgan Taylor Polish', 'Stick With It Base Coat', '1 bottle', 4.50, 10.13, 925451063086),
+(3000, 'Morgan Taylor Polish', 'Gifted In Platinum', '1 bottle', 4.50, 10.13, 316258818842),
+(3000, 'Morgan Taylor Polish', 'Ruby Two Shoes', '1 bottle', 4.50, 10.13, 423048571683),
+(3000, 'Morgan Taylor Polish', 'Im So Hot', '1 bottle', 4.50, 10.13, 104333837516),
+(3000, 'Morgan Taylor Polish', 'A Little Naughty', '1 bottle', 4.50, 10.13, 932765070815),
+(3000, 'Morgan Taylor Polish', 'All Wrapped Up', '1 bottle', 4.50, 10.13, 692907291465),
+(3000, 'Morgan Taylor Polish', 'Tinsel My Fancy', '1 bottle', 4.50, 10.13, 662686451338),
+(3000, 'Morgan Taylor Polish', 'Morgan Taylor Mini Polish Gift Set', '1 set', 22.00, 32.13, 316880547441);
+    
+LOCK TABLES `resource` WRITE;
+
+INSERT INTO `resource` (`resource_id`, `name`, `type`)
+VALUES
+	(1000, 'Sink 1', 'Sink'),
+    (1010, 'Sink 2', 'Sink'),
+    (1020, 'Sink 3', 'Sink'),
+    (1030, 'Sink 4', 'Sink'),
+    (1040, 'Sink 5', 'Sink'),
+    (2000, 'Drying Chair 1', 'Hooded Dryer'),
+    (2010, 'Drying Chair 2', 'Hooded Dryer'),
+    (2020, 'Drying Chair 3', 'Hooded Dryer'),
+    (2030, 'Drying Chair 4', 'Hooded Dryer');  
+
+LOCK TABLES `appointment` WRITE;
+
+INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_timestamp`)
+VALUES
+	(1000, 107, 1235, 700, '2016-03-21 08:30'),
+    (2010, 282, 2182, 800, '2016-03-18 15:45'),
+    (3000, 58, 7516, 900, '2016-03-06  15:30');
 
 LOCK TABLES `example_phpmvc` WRITE;
 
@@ -858,3 +943,65 @@ VALUES
 
 UNLOCK TABLES;
 
+ALTER TABLE customer
+ADD FOREIGN KEY (discount_type) 
+REFERENCES discount(discount_type),
+    ADD FOREIGN KEY (preferred_staff)
+    REFERENCES staff(staff_id);
+
+ALTER TABLE appointment
+ADD FOREIGN KEY (service_id)
+REFERENCES service(service_id),
+    ADD FOREIGN KEY (customer_id)
+    REFERENCES customer(customer_id),
+    ADD FOREIGN KEY (promotion_id)
+    REFERENCES promotion(promotion_id),
+    ADD FOREIGN KEY (staff_id)
+    REFERENCES staff(staff_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+
+ALTER TABLE staff
+ADD FOREIGN KEY (role_id)
+REFERENCES role(role_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE service
+ADD FOREIGN KEY (add_on)
+REFERENCES add_on_service(add_on_id),
+    ADD FOREIGN KEY (role_id)
+    REFERENCES role(role_id),
+    ADD FOREIGN KEY (availability_id)
+    REFERENCES availability(availability_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE product
+ADD FOREIGN KEY (vendor_id)
+REFERENCES vendor(vendor_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE resource
+ADD FOREIGN KEY (availability_id)
+REFERENCES availability(availability_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+ALTER TABLE promotion
+ADD FOREIGN KEY (discount_type)
+REFERENCES discount(discount_type);
+
+ALTER TABLE shift
+ADD FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id);
+
+ALTER TABLE availability
+ADD FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id),
+    ADD FOREIGN KEY (resource_id)
+    REFERENCES resource(resource_id),
+    ADD FOREIGN KEY (service_id)
+    REFERENCES service(service_id);
+    
