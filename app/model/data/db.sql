@@ -12,7 +12,7 @@ CREATE TABLE `customer` (
     `state`         char(2),
     `zip`           char(5),
     `phone`         varchar(12),
-    `alt_phone`         varchar(12),
+    `alt_phone`     varchar(12),
     `notes`         varchar(255),
     `preferred_staff`    int(4),
     `discount_type`     int(4),
@@ -46,6 +46,7 @@ CREATE TABLE `staff` (
     `state`         char(2),
     `zip`           char(5),
     `phone`         varchar(12) NOT NULL,
+    `alt_phone`     varchar(12),
     `role_id`       int(4) NOT NULL,
     `services`      varchar(255),
     `status_code`   int(4),
@@ -780,3 +781,18 @@ VALUES
     ('Gail', 'Similton', '62 Monroe St', 'Thousand Palms', 'CA', '92276', '760-616-5388', '760-493-9208', 'gail_similton@similton.com'), 
     ('Catalina', 'Tillotson', '3338 A Lockport Pl Apt 6', 'Margate City', 'NJ', '8402', '609-373-3332', '609-826-4990', 'catalina@hotmail.com'), 
     ('Lawrence', 'Lorens', '9 Hwy', 'Providence', 'RI', '2906', '401-465-6432', '401-893-1820', 'lawrence.lorens@hotmail.com');
+
+LOCK TABLES `staff` WRITE;
+
+INSERT INTO `staff` (`staff_id`, `first`, `last`, `address`, `city`, `state`, `zip`, `phone`, `alt_phone`, `email`, `role_id`)
+VALUES
+	 ('1805', 'Reimer', 'Rebecca', '8284 Hart St', 'Abilene', 'KS', '67410', '785-347-1805', '785-253-7049', 'rebeccar@hotmail.com', 'Stylist'), 
+    ('3571', 'Moore', 'Mel', '5 Washington St Apt 1', 'Roseville', 'CA', '95678', '916-920-3571', '916-459-2433', 'melm@ankeny.org', 'Stylist'), 
+    ('4118', 'Snyder', 'Lynn', '8 S Haven St', 'Daytona Beach', 'FL', '32114', '386-248-4118', '386-208-6976', 'lynns@gmail.com', 'Stylist'), 
+    ('7516', 'Franckowiak', 'Kim Marie', '9 Front St', 'Washington', 'DC', '20001', '202-646-7516', '202-276-6826', 'kim_marief @hixenbaugh.org', 'Stylist'), 
+    ('3294', 'Klug', 'Jenny', '1933 Packer Ave Apt 2', 'Novato', 'CA', '94945', '415-423-3294', '415-926-6089', 'jennyk@gmail.com', 'Stylist'), 
+    ('1235', 'Ludtke', 'Patrick', '67 Rv Cent', 'Boise', 'ID', '83709', '208-709-1235', '208-206-9848', 'patrickl@gillaspie.com', 'Stylist'), 
+    ('1454', 'Johnson', 'Colleen', '2 Sw Nyberg Rd', 'Elkhart', 'IN', '46514', '574-499-1454', '574-330-1884', 'colleenj@kampa.org', 'Stylist'), 
+    ('2182', 'Kreidler', 'Janelle', '89992 E 15th St', 'Alliance', 'NE', '69301', '308-726-2182', '308-250-6987', 'janellek @cox.net', 'Stylist'), 
+    ('6498', 'Dean', 'Chaz', '61556 W 20th Ave', 'Seattle', 'WA', '98104', '206-711-6498', '206-395-6284', 'chazd@yahoo.com', 'Master Stylist'), 
+    ('4842', 'Stafford', 'Lee', '63 E Aurora Dr', 'Orlando', 'FL', '32804', '407-413-4842', '407-557-8857', 'lees@aol.com', 'Senior Stylist');
