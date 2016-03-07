@@ -28,6 +28,10 @@ app.config(['$routeProvider',
         when('/reports', {
             templateUrl: 'app/view/pages/templates/reports.php'
         }).
+        when('/login', {
+            templateUrl: 'app/view/pages/templates/login.php',
+            controller: 'loginController'
+        }).
         otherwise({
             redirectTo: '/'
         });
