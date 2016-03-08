@@ -32,6 +32,9 @@ app.config(['$routeProvider',
         when('/:user/account', {
             templateUrl: 'app/view/pages/templates/user.php'
         }).
+        when('/test', {
+            templateUrl: 'app/view/pages/templates/test.php'
+        }).
         otherwise({
             redirectTo: '/'
         });
