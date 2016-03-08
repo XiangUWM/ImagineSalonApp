@@ -1,5 +1,4 @@
-    <h2>{{ greeting }}</h2>
-    <h4 id="login-response">{{ response }}</h4>
+<h4 id="login-response">{{ response }}</h4>
 <form name="loginForm" class="form-horizontal" novalidate ng-submit="login()">
     <fieldset>
         <legend>Login Here</legend>
