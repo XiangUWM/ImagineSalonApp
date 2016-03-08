@@ -19,8 +19,8 @@ foreach( $results as $row ) {
             <td>'. $row['name'] .'</td>
             <td>'. $row['vendor'] .'</td>
             <td>'. $row['size'] .'</td>
-            <td>'. $row['wholesale_cost'] .'</td>
-            <td>'. $row['retail_price'] .'</td>
+            <td>$'. $row['wholesale_cost'] .'</td>
+            <td>$'. $row['retail_price'] .'</td>
             <td>'. $row['quantity'] .'</td>
             <td>'. $row['upc_code'] .'</td>
             </tr>';
