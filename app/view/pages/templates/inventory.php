@@ -23,7 +23,7 @@
     <form name="inventory-form" id="inventory-form" class="jumbotron">
         <fieldset id="inventory-filter">
 
-            <legend>Filter Results</legend>
+            <legend>Filter Results <span id="icon-toggler" onclick="$('main .form-group').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend><br>
             <div class="form-group">
                 <label for="select" class="control-label">Brands</label>
                 <select class="form-control" id="select">
@@ -44,12 +44,53 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="select" class="control-label">Vendors</label>
+                <label for="select" class="control-label">Status</label>
                 <select class="form-control" id="select">
                     <option>All</option>
-                    <option>Premier Beauty Systems</option>
-                    <option>Beauty Craft</option>
-                    <option>National Salon Services</option>
+                    <option>In-Stock</option>
+                    <option>Ordered</option>
+                    <option>Out-of-Stock</option>
+                    <option>Shipped</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Categories</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>Shampoo</option>
+                    <option>Conditioner</option>
+                    <option>Styling Aid</option>
+                    <option>Mousse</option>
+                    <option>Hairspray</option>
+                    <option>Nail Polish</option>
+                    <option>Gift Bag</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Wholesale Cost</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>$0 - $9.99</option>
+                    <option>$10-$14.99</option>
+                    <option>$15-$19.99</option>
+                    <option>$20-24.99</option>
+                    <option>$25-$29.99</option>
+                    <option>$30+</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Retail Price</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>$0 - $9.99</option>
+                    <option>$10-$14.99</option>
+                    <option>$15-$19.99</option>
+                    <option>$20-24.99</option>
+                    <option>$25-$29.99</option>
+                    <option>$30-$39.99</option>
+                    <option>$40-$49.99</option>
+                    <option>$50-$59.99</option>
+                    <option>$60+</option>
                 </select>
             </div>
             <div class="form-group">
@@ -64,7 +105,7 @@
             <th>#</th>
             <th>Brand</th>
             <th>Name</th>
-            <th>vendor</th>
+            <th>Vendor</th>
             <th>Size</th>
             <th>Wholesale Cost</th>
             <th>Retail Price</th>
@@ -152,3 +193,9 @@
         </tr>
     </tbody>
 </table>
+
+<script>
+$("#icon-toggler").click(function() {
+    $(this).find('img').toggle();
+});
+</script>
