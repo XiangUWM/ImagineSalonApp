@@ -23,7 +23,8 @@
     <form name="inventory-form" id="inventory-form" class="jumbotron">
         <fieldset id="inventory-filter">
 
-            <legend>Filter Results <span id="icon-toggler" onclick="$('main .form-group').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend><br>
+            <legend>Filter Results <span id="icon-toggler" onclick="$('main .form-group').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend>
+            <br>
             <div class="form-group">
                 <label for="select" class="control-label">Brands</label>
                 <select class="form-control" id="select">
@@ -114,88 +115,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr>
-            <td>2</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr class="info">
-            <td>3</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr class="success">
-            <td>4</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr class="danger">
-            <td>5</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr class="warning">
-            <td>6</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        <tr class="active">
-            <td>7</td>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
+        <?php
+$path = '../../../model/inventory.php';
+if (file_exists($path)) {
+    require($path);
+    echo '<script>console.log("query is found");</script>';
+} else {
+        echo '<script>console.log("query is not found");</script>';
+}
+        ?>
     </tbody>
 </table>
 
 <script>
-$("#icon-toggler").click(function() {
-    $(this).find('img').toggle();
-});
+    $("#icon-toggler").click(function () {
+        $(this).find('img').toggle();
+    });
 </script>

@@ -172,3 +172,38 @@ echo $database->num_fields( "SELECT * FROM example_phpmvc" );
 echo '<hr />' . $database->total_queries();
 
 ?>
+<hr>
+<h1>Test Area</h1>
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Vendor</th>
+            <th>Size</th>
+            <th>Wholesale Cost</th>
+            <th>Retail Price</th>
+            <th>Quantity</th>
+            <th>UPC</th>
+        </tr>
+    </thead>
+    <tbody>
+<?php 
+$query = "select product_id, brand, product.name as name, vendor.name as vendor, size, wholesale_cost, retail_price, quantity, upc_code from product inner join vendor on(product.vendor_id = vendor.vendor_id);";
+$results = $database->get_results( $query );
+foreach( $results as $row ) {
+    echo '  <tr>
+            <td>'. $row['product_id'] .'</td>
+            <td>'. $row['brand'] .'</td>
+            <td>'. $row['name'] .'</td>
+            <td>'. $row['vendor'] .'</td>
+            <td>'. $row['size'] .'</td>
+            <td>'. $row['wholesale_cost'] .'</td>
+            <td>'. $row['retail_price'] .'</td>
+            <td>'. $row['quantity'] .'</td>
+            <td>'. $row['upc_code'] .'</td>
+            </tr>';
+}
+?>
+</tbody>        
