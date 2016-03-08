@@ -11,6 +11,9 @@ app.config(['$routeProvider',
             templateUrl: 'app/view/pages/templates/login.php',
             controller: 'loginController'
         }).
+        when('/home', {
+            templateUrl: 'app/view/pages/templates/home.php'
+        }).
         when('/calendar', {
             templateUrl: 'app/view/pages/templates/calendar.php'
         }).
@@ -26,8 +29,8 @@ app.config(['$routeProvider',
         when('/reports', {
             templateUrl: 'app/view/pages/templates/reports.php'
         }).
-        when('/home', {
-            templateUrl: 'app/view/pages/templates/home.php'
+        when('/:user/account', {
+            templateUrl: 'app/view/pages/templates/user.php'
         }).
         otherwise({
             redirectTo: '/'
