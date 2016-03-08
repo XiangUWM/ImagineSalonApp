@@ -21,6 +21,7 @@ content {
 #inventory-form-container {
     height: 125px;
 }
-#inventory-filter{
-    display: inline;
+#inventory-filter div{
+    float: left;
+    margin: 0.5%;
 }

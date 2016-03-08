@@ -20,25 +20,42 @@
             <a href="#" class="btn btn-default btn-sm">Update Product List</a>
         </content>
     </div>
-    <form name="inventory-form" id="inventory-form" class="jumbotron form-horizontal">
+    <form name="inventory-form" id="inventory-form" class="jumbotron">
         <fieldset id="inventory-filter">
 
             <legend>Filter Results</legend>
             <div class="form-group">
-                <label for="select" class="col-lg-2 control-label">Brands</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="select">
-                        <option>All</option>
-                        <option>Goldwell</option>
-                        <option>Morgan Taylor Polish</option>
-                        <option>Moroccin</option>
-                        <option>Unite</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="search-inventory">Search inventory</label>
-                    <input class="form-control" id="search-inventory" type="text" value="Search">
-                </div>
+                <label for="select" class="control-label">Brands</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>Goldwell</option>
+                    <option>Morgan Taylor Polish</option>
+                    <option>Moroccin</option>
+                    <option>Unite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Vendors</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>Premier Beauty Systems</option>
+                    <option>Beauty Craft</option>
+                    <option>National Salon Services</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="select" class="control-label">Vendors</label>
+                <select class="form-control" id="select">
+                    <option>All</option>
+                    <option>Premier Beauty Systems</option>
+                    <option>Beauty Craft</option>
+                    <option>National Salon Services</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="search-inventory">Search inventory</label>
+                <input class="form-control" id="search-inventory" type="text" value="Search">
+            </div>
         </fieldset>
     </form>
 
