@@ -1,0 +1,65 @@
+#logo {
+    height: 380%;
+    box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.7);
+}
+
+main {
+    padding: 2%;
+}
+
+content {
+    margin: 1.9%;
+    float: left;
+}
+
+.jumbotron {
+    padding: 0.5%;
+}
+
+.icon {
+    height: 4%;
+}
+
+.inventory-form-headers {
+    text-align: center;
+}
+
+#inventory-form-container {
+    height: 125px;
+}
+
+#inventory-filter div {
+    float: left;
+    margin: 0.5%;
+}
+
+fieldset {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    #drop1 {
+        top: 31px;
+    }
+}
+
+@media screen and (max-width: 1326px) {
+    content {
+        text-align: center;
+    }
+    content:last-of-type {
+        text-align: center;
+    }
+    content a {
+        width: 100%;
+        margin: 1%;
+    }
+    #inventory-form-container {
+        display: inline-flex;
+        height: 200px;
+    }
+}
+
+.modal {
+    overflow: auto;
+}
