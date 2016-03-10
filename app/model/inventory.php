@@ -6,10 +6,14 @@ if (file_exists($db_path)) {
 } else {
         echo '<script>console.log("database is not connected in the model");</script>';
 }
+
+
+
+function getInventory() {
 $database = new DB();
 //OR...
 $database = DB::getInstance();
-
+    
 $query = "select product_id, brand, product.name as name, vendor.name as vendor, size, wholesale_cost, retail_price, quantity, upc_code from product inner join vendor on(product.vendor_id = vendor.vendor_id);";
 $results = $database->get_results( $query );
 foreach( $results as $row ) {
@@ -24,5 +28,6 @@ foreach( $results as $row ) {
             <td>'. $row['quantity'] .'</td>
             <td>'. $row['upc_code'] .'</td>
             </tr>';
+}
 }
 ?>

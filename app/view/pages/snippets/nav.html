@@ -3,7 +3,7 @@
 <!--  Global Navigation: Primary Navigation Tabs -->
 <nav>
     <!--  Bootswatch Navigation Tab Classes  -->
-    <ul class="nav nav-tabs">
+    <ul class="nav navs nav-tabs">
 
         <!--  Navigation Tabs (AngularJs routes to files located in the templates folder) -->
         <li class="active"><a href="#/home" data-toggle="tab">Dashboard</a></li>
@@ -33,3 +33,9 @@
     <!--  /.nav nav-tabs  -->
 </nav>
 </header>
+<script>
+    $('.navs li').click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+    });
+</script>
