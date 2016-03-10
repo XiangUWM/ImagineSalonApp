@@ -1,0 +1,29 @@
+Issue Name: XIAN-001 - Connect Slim Framework to MySQL Database
+
+Current Date: March 4, 2016
+
+Time at Acceptance: 10:18 AM CST
+
+Start Timestamp: March 4, 2016 01:18 PM CST
+
+End Timestamp: March 4, 2016 05:15 PM CST
+
+Issue File Location: model/, view/, controller/, logs/, view/css, view/js, view/js/jquery, view/pages/home.html
+
+Issue Line Location: N/a
+
+What needed to be fixed: The MVC layout needed to be created.
+
+How it has been fixed: Unable to load an actual MVC framework due to the SOIS webspace failing server requirements, I've fashioned an MVC layout and created a database connection template to give the project some sort of foundation. 
+
+What still needs to be fixed: Front-end libraries need to be added with npm.
+
+How to test: You should see the following folders in place: 
+
+model/data
+controller/
+view/css
+view/js/jquery
+pages/home
+
+* If you do not see some of the View folders (view/js/jquery & view/css), then that means there are no files present in the system. There is not an error. As long as the model/ view/ and controller/ folders appear, the basic layout is created. 
