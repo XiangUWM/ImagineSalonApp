@@ -1,7 +1,4 @@
-#logo {
-    height: 380%;
-    box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.7);
-}
+/*********** HTML Tag Elements *************/
 
 main {
     padding: 2%;
@@ -12,8 +9,19 @@ content {
     float: left;
 }
 
+fieldset {
+    width: 100%;
+}
+
+
+/*********** Classes *************/
+
 .jumbotron {
     padding: 0.5%;
+}
+
+.modal {
+    overflow: auto;
 }
 
 .icon {
@@ -22,6 +30,14 @@ content {
 
 .inventory-form-headers {
     text-align: center;
+}
+
+
+/*********** ID's *************/
+
+#logo {
+    height: 380%;
+    box-shadow: 2px 2px 3px rgba(50, 50, 50, 0.7);
 }
 
 #inventory-form-container {
@@ -33,12 +49,11 @@ content {
     margin: 0.5%;
 }
 
-fieldset {
-    width: 100%;
-}
+
+/*********** Media Screens *************/
 
 @media screen and (max-width: 768px) {
-    #drop1 {
+    #dropdown-menu-profile {
         top: 31px;
     }
 }
@@ -47,19 +62,15 @@ fieldset {
     content {
         text-align: center;
     }
-    content:last-of-type {
-        text-align: center;
-    }
     content a {
         width: 100%;
         margin: 1%;
+    }
+    content:last-of-type {
+        text-align: center;
     }
     #inventory-form-container {
         display: inline-flex;
         height: 200px;
     }
-}
-
-.modal {
-    overflow: auto;
 }
