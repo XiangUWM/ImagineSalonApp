@@ -4,5 +4,8 @@ Controllers.controller('inventoryController', ['$scope',
             $scope.openCount = function() {
                $('#open-count').toggle('slow'); 
             };
+            $scope.closeCount = function() {
+               $('#close-count').toggle('slow'); 
+            };
         })
   }]);

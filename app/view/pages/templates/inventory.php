@@ -1,12 +1,12 @@
 <?php require('../snippets/inventory/opencount.php'); ?>
-
+<?php require('../snippets/inventory/closecount.php'); ?>
 
     <div class="jumbotron" id="inventory-form-container">
 
         <content>
             <h4 class="inventory-form-headers">Daily Activities</h4>
-            <a href="" ng-click="openCount()" class="btn btn-default btn-sm">Opening Count</a>
-            <a href="#" class="btn btn-default btn-sm">Closing Count</a>
+            <a ng-click="openCount()" class="btn btn-default btn-sm">Opening Count</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">Closing Count</a>
             <a href="#" class="btn btn-default btn-sm">Today's Report</a>
         </content>
         <content>
@@ -131,6 +131,6 @@ if (file_exists($path)) {
 
 <script>
     $("#icon-toggler").click(function () {
-        $(this).find('img').toggle();
+        $(this).find('img').toggle('fast');
     });
 </script>
