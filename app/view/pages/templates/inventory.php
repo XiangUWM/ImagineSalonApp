@@ -1,5 +1,6 @@
 <?php require('../snippets/inventory/opencount.php'); ?>
 <?php require('../snippets/inventory/closecount.php'); ?>
+<?php require('../snippets/inventory/dailyreport.php'); ?>
 
     <div class="jumbotron" id="inventory-form-container">
 
@@ -7,27 +8,27 @@
             <h4 class="inventory-form-headers">Daily Activities</h4>
             <a ng-click="openCount()" class="btn btn-default btn-sm">Opening Count</a>
             <a ng-click="closeCount()" class="btn btn-default btn-sm">Closing Count</a>
-            <a href="#" class="btn btn-default btn-sm">Today's Report</a>
+            <a ng-click="dailyReport()" class="btn btn-default btn-sm">Today's Report</a>
         </content>
         <content>
             <h4 class="inventory-form-headers">Reports</h4>
-            <a href="#" class="btn btn-default btn-sm">View Daily Reports</a>
-            <a href="#" class="btn btn-default btn-sm">View Current Stock</a>
-            <a href="#" class="btn btn-default btn-sm">View Audit Reports</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">View Daily Reports</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">View Current Stock</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">View Audit Reports</a>
         </content>
         <content>
             <h4 class="inventory-form-headers">Auditing</h4>
-            <a href="#" class="btn btn-default btn-sm">Perform Audit</a>
-            <a href="#" class="btn btn-default btn-sm">Current Audit Report</a>
-            <a href="#" class="btn btn-default btn-sm">Update Product List</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">Perform Audit</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">Current Audit Report</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">Update Product List</a>
         </content>
     </div>
     <form name="inventory-form" id="inventory-form" class="">
         <fieldset id="inventory-filter">
 
-            <legend>Filter Results <span id="icon-toggler" onclick="$('main .form-group').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend>
+            <legend>Filter Results <span id="icon-toggler" onclick="$('.filter-results').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend>
             <br>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Brands</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -37,7 +38,7 @@
                     <option>Unite</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Vendors</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -46,7 +47,7 @@
                     <option>National Salon Services</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Status</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -56,7 +57,7 @@
                     <option>Shipped</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Categories</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -69,7 +70,7 @@
                     <option>Gift Bag</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Wholesale Cost</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -81,7 +82,7 @@
                     <option>$30+</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label for="select" class="control-label">Retail Price</label>
                 <select class="form-control" id="select">
                     <option>All</option>
@@ -96,7 +97,7 @@
                     <option>$60+</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group filter-results">
                 <label class="control-label" for="search-inventory">Search inventory</label>
                 <input class="form-control" id="search-inventory" type="text" value="Search">
             </div>
