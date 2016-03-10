@@ -59,7 +59,5 @@ fieldset {
 #open-count {
     box-shadow: 3, 3, 3, rgba(50,50,50,0.7);
     width: 97%;
-}
-#open-count ul {
-    list-style: none;
+    overflow: auto;
 }

@@ -1,6 +1,6 @@
 <?php require('../snippets/inventory/opencount.php'); ?>
 
-<table class="table table-striped table-hover ">
+
     <div class="jumbotron" id="inventory-form-container">
 
         <content>
@@ -22,7 +22,7 @@
             <a href="#" class="btn btn-default btn-sm">Update Product List</a>
         </content>
     </div>
-    <form name="inventory-form" id="inventory-form" class="jumbotron">
+    <form name="inventory-form" id="inventory-form" class="">
         <fieldset id="inventory-filter">
 
             <legend>Filter Results <span id="icon-toggler" onclick="$('main .form-group').toggle('slow');"> <img src="app/view/img/icons/toggle_on-icon.png"/><img src="app/view/img/icons/toggle_off-icon.png" style="display:none"/></span></legend>
@@ -102,7 +102,7 @@
             </div>
         </fieldset>
     </form>
-
+<table class="table table-striped table-hover ">
     <thead>
         <tr>
             <th>#</th>
