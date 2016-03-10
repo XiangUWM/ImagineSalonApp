@@ -1,9 +1,11 @@
+<?php require('../snippets/inventory/opencount.php'); ?>
+
 <table class="table table-striped table-hover ">
     <div class="jumbotron" id="inventory-form-container">
 
         <content>
             <h4 class="inventory-form-headers">Daily Activities</h4>
-            <a href="#" class="btn btn-default btn-sm">Opening Count</a>
+            <a href="" ng-click="openCount()" class="btn btn-default btn-sm">Opening Count</a>
             <a href="#" class="btn btn-default btn-sm">Closing Count</a>
             <a href="#" class="btn btn-default btn-sm">Today's Report</a>
         </content>

@@ -1,13 +1,11 @@
 var Controllers = angular.module('Controllers', []);
 
 Controllers.controller('loginController', ['$scope', '$http',
-  function ($scope, $http) {
+  function ($scope) {
         $(document).ready(function () {
             $('a').hide();
         });
-        $http.get('app/model/data/admin.json').success(function (data) {
-            $scope.greeting = " Please login to use Imagine Salon Scheduling Service.";
-        });
+        
 
         $scope.login = function () {
             $scope.message = "Welcome " + $scope.user.name + "!";

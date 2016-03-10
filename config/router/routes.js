@@ -21,7 +21,8 @@ app.config(['$routeProvider',
             templateUrl: 'app/view/pages/templates/customers.php'
         }).
         when('/inventory', {
-            templateUrl: 'app/view/pages/templates/inventory.php'
+            templateUrl: 'app/view/pages/templates/inventory.php',
+            controller: 'inventoryController'
         }).
         when('/settings', {
             templateUrl: 'app/view/pages/templates/settings.php'
