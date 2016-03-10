@@ -1,23 +1,48 @@
+<!--  Opening Inventory Count Form  -->
+
+<!--  Popup Modal (hidden, overlapping)  -->
 <div class="modal" id="open-count" style="display:none; position: absolute; z-index:1000">
     <div class="modal-dialog">
         <div class="modal-content">
+            <!--  Modal Header with closing icon  -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" ng-click="openCount()" aria-hidden="true">x</button>
+                <!--  NOTE: When user clicks close, ng-click calls the openCount() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
+
+                <!--  Modal title  -->
                 <h4 class="modal-title">Opening Inventory Count</h4>
             </div>
+            <!--  /.modal-header  -->
+
+            <!--  Modal Body  -->
             <div class="modal-body">
+
+                <!--  Form group with column width of 7  -->
+                <!--  NOTE: Max width of any line is 12 columns. If columns add up to more than 12, the overflowing objects will appear on the next line. -->
+
                 <div class="form-group col-lg-7">
-                    <label class="control-label" for="focusedInput">Enter UPC Code OR Product Number</label>
-                    <input class="form-control" id="focusedInput" type="text" value="Ex. '012345678910' or '92'">
+                    <!--   Input and label for UPC/Product Number  -->
+                    <label class="control-label" for="openUPCInput">Enter UPC Code OR Product Number</label>
+                    <input class="form-control" id="openUPCInput" type="text" value="Ex. '012345678910' or '92'">
                 </div>
+
+                <!--  Form group with column width of 3  -->
                 <div class="form-group col-lg-3">
-                    <label class="control-label" for="focusedInput">Enter Quantity</label>
-                    <input class="form-control" id="focusedInput" type="text" value="Ex. '3'">
+                    <!--  Input and label for Quantity Number  -->
+                    <label class="control-label" for="openQuantityInput">Enter Quantity</label>
+                    <input class="form-control" id="openQuantityInput" type="text" value="Ex. '3'">
                 </div>
+
                 <br>
+
+                <!--  'Add' Button has a column width of 2  -->
                 <button type="button" style="margin-top:3px" class="btn btn-primary">Add</button>
             </div>
+            <!--  /.modal-body  -->
+
+            <!--  Modal Footer  -->
             <div class="modal-footer">
+                <!--  Table Output  -->
                 <table class="table table-striped table-hover ">
                     <thead>
                         <tr>
@@ -28,6 +53,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!--  Imaginary data not pulled from the Database. Query results will be shown here. -->
                         <tr>
                             <td>1</td>
                             <td>Goldwell</td>
