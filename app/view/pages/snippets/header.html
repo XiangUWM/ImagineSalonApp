@@ -1,21 +1,35 @@
 <header>
+
+    <!--  Global Navigation: Header Navigation Bar  -->
+    <!--  Bootswatch Flatly Inverse theme navigation bar  -->
     <nav class="navbar navbar-inverse">
+
+        <!--  Responsive Design Container toggles between mobile navigation bar and desktop version -->
         <div class="container-fluid">
+
+            <!--  Navigation header for the mobile layout -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <!-- Responsive Toggle -->
+
+                <!-- Dropdown menu button -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="desktop-navigation">
+                    <!-- Responsive Toggle Icon -->
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <!-- Company Logo -->
                 <a class="navbar-brand"><img id="logo" src="app/view/img/ISLogo.png" /></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div> <!-- /.navbar-header (mobile) -->
+            
+            <!--  Navigation header for the desktop layout (horizontally collapseable)  -->
+            <div class="collapse navbar-collapse" id="desktop-navigation">
+                
+                <!--  Bootswatch Themed Navigation (left side) -->
                 <ul class="nav navbar-nav">
                     <!-- Profile Dropdown Menu -->
-                    <li class="dropdown" id="drop1">
+                    <li class="dropdown" id="dropdown-menu-profile">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><img src="app/view/img/icons/customer_gray-icon.png" />Welcome <span class="username">User</span>!</li>
@@ -25,32 +39,37 @@
                         </ul>
                     </li>
                 </ul>
+                <!--  Bootswatch Themed Navigation (far right side)  -->
                 <form class="navbar-form navbar-right" role="search">
+                    
+                    <!--  Bootswatch form-group Class  -->
                     <div class="form-group">
-                        <!-- Customer Search -->
+                        <!-- Customer Search field -->
                         <input type="text" class="form-control" placeholder="Search customers">
                     </div>
+                    <!--  Submit Search button  -->
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
+                
+                <!--  Bootswatch Themed Navigation (middle area)  -->
                 <ul class="nav navbar-nav navbar-right">
+                    <!--  Personalized Greeting  -->
                     <li><a href="#/">Welcome <span class="username">User</span>!</a></li>
-                    <!-- Quick Navigation Icons -->
+                    
+                    <!-- Quick Navigation Icons (more icons can be found in the icons folder) -->
                     <li class="active">
-                        <!-- New Promotion -->
+                        <!-- New Promotion Icon -->
                         <a href="#"><img class="icon" src="app/view/img/icons/promotion-icon.png" /><span class="sr-only">(current)</span></a>
                     </li>
                     <li>
-                        <!-- New Appointment -->
+                        <!-- New Appointment Icon -->
                         <a href="#"><img class="icon" src="app/view/img/icons/appointment-icon.png" /></a>
                     </li>
                     <li>
-                        <!-- New Customer -->
+                        <!-- New Customer Icon-->
                         <a href="#"><img class="icon" src="app/view/img/icons/add_customer-icon.png" /></a>
                     </li>
                 </ul>
-            </div>
-        </div>
+            </div> <!-- /.collapse navbar-collapse   -->
+        </div> <!-- /.container-fluid  -->
     </nav>
-    <script>
-
-    </script>
