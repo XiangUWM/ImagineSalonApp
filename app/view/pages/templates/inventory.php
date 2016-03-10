@@ -13,7 +13,7 @@
         <content>
             <h4 class="inventory-form-headers">Reports</h4>
             <a ng-click="closeCount()" class="btn btn-default btn-sm">View Daily Reports</a>
-            <a ng-click="closeCount()" class="btn btn-default btn-sm">View Current Stock</a>
+            <a ng-click="closeCount()" class="btn btn-default btn-sm">View Product Status</a>
             <a ng-click="closeCount()" class="btn btn-default btn-sm">View Audit Reports</a>
         </content>
         <content>

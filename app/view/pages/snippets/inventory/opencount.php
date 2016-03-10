@@ -19,62 +19,69 @@
             </div>
             <div class="modal-footer">
                 <table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Brand</th>
-      <th>Product</th>
-      <th>Quantity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Goldwell</td>
-      <td>Kerasilk Rich Shampoo 8 oz</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Goldwell</td>
-      <td>Kerasilk Rich Conditioner 8 oz</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Goldwell</td>
-      <td>Kerasilk Ultra Rich Shampoo 8 oz</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Goldwell</td>
-      <td>Kerasilk Ultra Rich Conditioner 8 oz</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Goldwell</td>
-      <td>Sleek Perfection 5 oz</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Goldwell</td>
-      <td>Hot Form 3 oz</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Goldwell</td>
-      <td>Flat Marvel 2 oz</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table> 
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Brand</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Goldwell</td>
+                            <td>Kerasilk Rich Shampoo 8 oz</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Goldwell</td>
+                            <td>Kerasilk Rich Conditioner 8 oz</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Goldwell</td>
+                            <td>Kerasilk Ultra Rich Shampoo 8 oz</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Goldwell</td>
+                            <td>Kerasilk Ultra Rich Conditioner 8 oz</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Goldwell</td>
+                            <td>Sleek Perfection 5 oz</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Goldwell</td>
+                            <td>Hot Form 3 oz</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Goldwell</td>
+                            <td>Flat Marvel 2 oz</td>
+                            <td>1</td>
+                        </tr>
+                        <!--  End imaginary data  -->
+                    </tbody>
+                </table>
+
+                <!--  Close Modal or Save Changes  -->
                 <button type="button" class="btn btn-default" ng-click="openCount()" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
+            <!-- /.modal-footer -->
         </div>
+        <!-- /.modal-content -->
     </div>
+    <!-- /.modal-dialog -->
 </div>
+<!-- /.modal -->
