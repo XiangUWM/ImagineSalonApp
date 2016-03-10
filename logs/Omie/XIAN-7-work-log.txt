@@ -1,0 +1,29 @@
+Issue Name: XIAN-7 
+
+Current Date: March 5, 2016
+
+Time at Acceptance: 10:58 AM CST
+
+Start Timestamp: March 5, 2016 01:18 PM CST
+
+End Timestamp: March 5, 2016 05:15 PM CST
+
+Issue File Location: config/db/db.php, view/pages/test.php
+
+Issue Line Location: N/a
+
+What needed to be fixed: The database connection needed to be instantiated and enhanced with prepared statements.
+
+How it has been fixed: I applied a template for the connection and prepared statements.  
+
+What still needs to be fixed: N/a
+
+How to test: 
+1. load SQL code located in app/model/data/test.sql into your chosen database. 
+
+config/db/db.php 
+Lines 2-6
+2. Declare your own database variables. 
+
+3. Go to the index page/base URL. Click the link guiding you to the test page. 
+
