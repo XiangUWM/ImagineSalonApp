@@ -8,7 +8,7 @@
             <!--  Modal Header with closing icon  -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" ng-click="dailyReport()" aria-hidden="true">x</button>
-                <!--  NOTE: When user clicks close, ng-click calls the closeCount() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
+                <!--  NOTE: When user clicks close, ng-click calls the dailyReport() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
 
                 <!--  Modal title  -->
                 <h4 class="modal-title">Daily Inventory Report for {{ currentDate() }} </h4>
@@ -21,17 +21,17 @@
                     <thead>
                         <tr>
                             <th>Product In</th>
-                            <th>Cost</th>
                             <th>Product Out</th>
-                            <th>Total Price</th>
+                            <th>Cost</th>
                             <th>Revenue</th>
+                            <th>Profit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--  Imaginary Data not retrieved from the database  -->
                         <td>10 items</td>
-                        <td>$87.23</td>
                         <td>5 items</td>
+                        <td>$87.23</td>
                         <td>$49.56</td>
                         <td>($37.67)</td>
                     </tbody>

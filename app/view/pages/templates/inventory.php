@@ -2,7 +2,11 @@
 <?php 
 require('../snippets/inventory/opencount.php');
 require('../snippets/inventory/closecount.php'); 
-require('../snippets/inventory/dailyreport.php'); 
+require('../snippets/inventory/dailyreport.php');
+require('../snippets/inventory/dailyreports.php'); 
+require('../snippets/inventory/status.php'); 
+require('../snippets/inventory/audit.php');
+
 ?>
 
     <!--  Require Inventory model (SQL queries) -->
@@ -28,15 +32,15 @@ if (file_exists($db_path)) {
             </content>
             <content>
                 <h4 class="inventory-form-headers">Reports</h4>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">View Daily Reports</a>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">View Product Status</a>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">View Audit Reports</a>
+                <a ng-click="dailyReports()" class="btn btn-default btn-sm">View Daily Reports</a>
+                <a ng-click="statusReport()" class="btn btn-default btn-sm">View Product Status</a>
+                <a ng-click="performAudit()" class="btn btn-default btn-sm">View Audit Reports</a>
             </content>
             <content>
                 <h4 class="inventory-form-headers">Auditing</h4>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">Perform Audit</a>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">Current Audit Report</a>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">Update Product List</a>
+                <a ng-click="performAudit()" class="btn btn-default btn-sm">Perform Audit</a>
+                <a ng-click="currentAudit()" class="btn btn-default btn-sm">Current Audit Report</a>
+                <a ng-click="updateProducts()" class="btn btn-default btn-sm">Update Product List</a>
             </content>
         </div>
 
@@ -108,7 +112,7 @@ if (file_exists($db_path)) {
                         <option>$0 - $9.99</option>
                         <option>$10-$14.99</option>
                         <option>$15-$19.99</option>
-                        <option>$20-24.99</option>
+                        <option>$20-$24.99</option>
                         <option>$25-$29.99</option>
                         <option>$30-$39.99</option>
                         <option>$40-$49.99</option>

@@ -20,4 +20,12 @@
     <link rel="stylesheet" type="text/css" href="config/libraries/bootswatch/flatly/bootstrap.min.css" />
     <!--  Custom StleSheet  -->
     <link rel="stylesheet" type="text/css" href="app/view/styles/css/style.css" />
+     <script>
+    $(document).ready(function () {
+        $('.navs li').click(function () {
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+        });
+    });
+</script>
 </head>

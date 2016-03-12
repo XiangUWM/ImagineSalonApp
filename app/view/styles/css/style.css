@@ -74,3 +74,12 @@ fieldset {
         height: 200px;
     }
 }
+#assess-products-options a {
+    width: 30%;
+    margin: 1%;
+    text-align: center;
+}
+#assess-products-options a:first-of-type, 
+#assess-products-options a:nth-of-type(4) {
+    margin-left: 2.5%;
+}
