@@ -26,13 +26,13 @@ CREATE TABLE `appointment` (
     `customer_id`       int(4) NOT NULL,
     `promotion_id`      int(4),
     `notes`             varchar(255),
-    `start_timestamp`   timestamp NOT NULL,
-    `end_timestamp`     timestamp,
+    `start_datetime`   datetime NOT NULL,
+    `end_datetime`     datetime,
     `repeat`            boolean,
     `staff_id`          int(4),
     `resources`         varchar(255),
     `status_code`       int(4),
-    `check_in`          timestamp,
+    `check_in`          datetime,
     PRIMARY KEY         (`appointment_id`)
 ); 
 
@@ -119,8 +119,8 @@ PRIMARY KEY (`promotion_id`)
 
 CREATE TABLE `shift` (
     `shift_id`      int(4) NOT NULL AUTO_INCREMENT,
-    `shift_start`   timestamp NOT NULL,
-    `shift_end`     timestamp,
+    `shift_start`   datetime NOT NULL,
+    `shift_end`     datetime,
     `staff_id`      int(4),
     PRIMARY KEY     (`shift_id`)
 ); 
@@ -143,20 +143,20 @@ CREATE TABLE `availability` (
     `staff_id`          int(4),
     `resource_id`       int(4),
     `service_id`        int(4),
-    `monday_start`      timestamp NOT NULL,
-    `tuesday_start`     timestamp NOT NULL,
-    `wedday_start`      timestamp NOT NULL,
-    `thursday_start`    timestamp NOT NULL,
-    `friday_start`      timestamp NOT NULL,
-    `saturday_start`    timestamp NOT NULL,
-    `sunday_start`      timestamp NOT NULL,
-    `monday_end`        timestamp NOT NULL,
-    `tuesday_end`       timestamp NOT NULL,
-    `wedday_end`        timestamp NOT NULL,
-    `thursday_end`      timestamp NOT NULL,
-    `friday_end`        timestamp NOT NULL,
-    `saturday_end`      timestamp NOT NULL,
-    `sunday_end`        timestamp NOT NULL,
+    `monday_start`      datetime NOT NULL,
+    `tuesday_start`     datetime NOT NULL,
+    `wedday_start`      datetime NOT NULL,
+    `thursday_start`    datetime NOT NULL,
+    `friday_start`      datetime NOT NULL,
+    `saturday_start`    datetime NOT NULL,
+    `sunday_start`      datetime NOT NULL,
+    `monday_end`        datetime NOT NULL,
+    `tuesday_end`       datetime NOT NULL,
+    `wedday_end`        datetime NOT NULL,
+    `thursday_end`      datetime NOT NULL,
+    `friday_end`        datetime NOT NULL,
+    `saturday_end`      datetime NOT NULL,
+    `sunday_end`        datetime NOT NULL,
     PRIMARY KEY         (`availability_id`)
 ); 
 
@@ -171,6 +171,7 @@ CREATE TABLE `discount` (
 CREATE TABLE `status` (
     `status_code` int(4) NOT NULL AUTO_INCREMENT,
     `name`        varchar(35) NOT NULL,
+    `class`       char(10), 
     PRIMARY KEY   (`status_code`)
 ); 
 
@@ -181,10 +182,28 @@ CREATE TABLE `change` (
     `column_name`       varchar(35) NOT NULL,
     `previous_value`    varchar(255) NOT NULL,
     `current_value`     varchar(255) NOT NULL,
-    `change_timestamp`  timestamp DEFAULT current_timestamp,
+    `change_datetime`  datetime DEFAULT current_datetime,
     `is_undone`         boolean DEFAULT false,
     PRIMARY KEY         (`change_id`)
 ); 
+
+CREATE TABLE `inventory_count` (
+  `count_date`             date NOT NULL DEFAULT current_date,
+  `open_count_datetime`    datetime DEFAULT current_datetime,
+  `close_count_datetime`   datetime,
+  `open_count_data`        mediumtext DEFAULT 
+    '{"open_count":[
+        {"product_id: ""},
+        {"quantity" : ""}
+    ]',
+  `close_count_data`       mediumtext DEFAULT
+     '{"close_count":[
+        {"product_id: ""},
+        {"quantity" : ""}
+    ]',
+  `is_erroneous`           boolean DEFAULT false,
+    PRIMARY KEY            (`count_date`)
+);
 
 CREATE TABLE `example_phpmvc` (
   `group_id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -714,18 +733,18 @@ VALUES
 
 LOCK TABLES `status` WRITE;
 
-INSERT INTO `status` (`status_code`, `name`)
+INSERT INTO `status` (`status_code`, `name`, `class`)
 VALUES
-	(100, 'Available'),
-    (200, 'Unavailable'),
-    (300, 'Ordered'),
-    (400, 'In-Stock'),
-    (500, 'Out-of-Stock'),
-    (600, 'Shipped'),
-    (700, 'Scheduled'),
-    (800, 'Confirmed'),
-    (900, 'Active'),
-    (1000, 'Completed'); 
+	(100, 'Available', ''),
+    (200, 'Unavailable','warning'),
+    (300, 'Ordered', 'info'),
+    (400, 'In-Stock', ''),
+    (500, 'Out-of-Stock','danger'),
+    (600, 'Shipped','success'),
+    (700, 'Scheduled','info'),
+    (800, 'Confirmed','success'),
+    (900, 'Active',''),
+    (1000, 'Completed',''); 
     
 LOCK TABLES `add_on_service` WRITE;
     
@@ -905,7 +924,7 @@ VALUES
 
 LOCK TABLES `appointment` WRITE;
 
-INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_timestamp`)
+INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_datetime`)
 VALUES
 	(1000, 107, 1235, 700, '2016-03-21 08:30'),
     (2010, 282, 2182, 800, '2016-03-18 15:45'),
