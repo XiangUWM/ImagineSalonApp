@@ -174,6 +174,9 @@
                                         1. List of products in order of how many have been deducted from the inventory.
                                         <br> 2. List of products in order of how much each as sold.
                                         <br> 3. List of products in order of profit per volume (unit price). Include cost per oz.
+                                        
+                                        <br><br>Table
+                                        <br>Header: #, Name Size, 
                                     </article>
                                 </content>
                                 <content class="shipping-stats">
@@ -181,6 +184,8 @@
                                     <article>
                                         1. Avg shipping cost per vendor
                                         <br> 2. Shipping costs per month
+                                        <br> 3. Current shipping frequencies
+                                        <br> 4. Shipping dates with product list.
 
                                     </article>
                                 </content>
@@ -210,7 +215,7 @@
                                     <h4>Shipping Frequencies</h4>
                                     <article>
                                         1. Input values for shipping frequency ('x times every y period')
-                                        <br> 2. 
+                                        
                                     </article>
                                 </content>
                             </div>
@@ -220,6 +225,7 @@
                         <fieldset class="modal-fieldset adjust-retail">
                             <legend>
                                 <p>Make adjustments to retail pricing</p>
+                                Input values for retail pricing.
                             </legend>
                         </fieldset>
                     </div>
