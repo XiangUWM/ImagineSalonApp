@@ -33,17 +33,17 @@ function getQuery() {
         
         $where_clause = ["brand = ".$brand, "product.vendor_id = ".$vendor, "status_code = ".$status, "category = ".$category, "wholesale_cost ".$wholesale_cost, "retail_price ".$retail_price, "product.name LIKE CONCAT('%', '".$search."', '%');"];
         
-        $delimeter = implode(" AND ", $where_clause);
-        $delimeter = " WHERE ".$delimeter;
-        getInventory($delimeter);
+        $delimiter = implode(" AND ", $where_clause);
+        $delimiter = " WHERE ".$delimiter;
+        getInventory($delimiter);
     }
 }
-function getInventory($delimeter) {
+function getInventory($delimiter) {
     $database = new DB();
     //OR...
     $database = DB::getInstance();
 
-    $query = "select product_id, brand, product.name as name, vendor.name as vendor, status_code, size, wholesale_cost, retail_price, quantity, upc_code from product inner join vendor on(product.vendor_id = vendor.vendor_id)".$delimeter.";";
+    $query = "select product_id, brand, product.name as name, vendor.name as vendor, status_code, size, wholesale_cost, retail_price, quantity, upc_code from product inner join vendor on(product.vendor_id = vendor.vendor_id)".$delimiter.";";
     $results = $database->get_results( $query );
     foreach( $results as $row ) {
         echo '  <tr>
