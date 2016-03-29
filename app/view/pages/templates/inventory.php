@@ -155,7 +155,6 @@ if (file_exists($db_path)) {
                     $needle = '?';
                     $haystack = $http_referer;
                     if(strrpos($haystack, $needle) >= 1){
-                        echo "<script>console.log('HTTTP_REFERER: ".$http_referer."');</script>";
                         getQuery();
                     } else
                         getInventory(null); ?>

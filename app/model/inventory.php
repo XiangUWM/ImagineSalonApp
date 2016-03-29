@@ -14,10 +14,6 @@ function getQuery() {
 
         $query =  str_replace( "&#39;", "'", filter_var(urldecode(explode('?',$http_referer)[1]), FILTER_SANITIZE_STRING));
         $form = explode('&', $query);
-        foreach($form as $input) {
-            echo '<script>console.log("'.$input.'");</script>';
-        }
-        echo '<script>console.log("'.$query.'");</script>';
 
         $brand_query_string = $form[0];
         $vendor_query_string = $form[1];
@@ -39,7 +35,6 @@ function getQuery() {
         
         $delimeter = implode(" AND ", $where_clause);
         $delimeter = " WHERE ".$delimeter;
-        echo '<script>console.log("'.$delimeter.'");</script>';
         getInventory($delimeter);
     }
 }
