@@ -8,36 +8,33 @@ if (file_exists($db_path)) {
 }
 function getQuery() {
     $http_referer = $_SERVER['HTTP_REFERER'];
-    $needle = "?";
-    $haystack = $http_referer;
-    if(strrpos($haystack , $needle) >= 0){
+    $query =  str_replace( "&#39;", "'", filter_var(urldecode(explode('?',$http_referer)[1]), FILTER_SANITIZE_STRING));
+    $form = explode('&', $query);
 
-        $query =  str_replace( "&#39;", "'", filter_var(urldecode(explode('?',$http_referer)[1]), FILTER_SANITIZE_STRING));
-        $form = explode('&', $query);
+    $brand_query = $form[0];
+    $vendor_query = $form[1];
+    $status_query = $form[2];
+    $category_query = $form[3];
+    $wholesale_cost_query = $form[4];
+    $retail_price_query = $form[5];
+    $search_query = $form[6];
 
-        $brand_query = $form[0];
-        $vendor_query = $form[1];
-        $status_query = $form[2];
-        $category_query = $form[3];
-        $wholesale_cost_query = $form[4];
-        $retail_price_query = $form[5];
-        $search_query = $form[6];
-        
-        $brand = explode('=', $brand_query)[1];
-        $vendor = explode('=', $vendor_query)[1];
-        $status = explode('=', $status_query)[1];
-        $category = explode('=', $category_query)[1];
-        $wholesale_cost = explode('=', $wholesale_cost_query)[1];
-        $retail_price = explode('=', $retail_price_query)[1];
-        $search = explode('=', $search_query)[1];
-        
-        $where_clause = ["brand = ".$brand, "product.vendor_id = ".$vendor, "status_code = ".$status, "category = ".$category, "wholesale_cost ".$wholesale_cost, "retail_price ".$retail_price, "product.name LIKE CONCAT('%', '".$search."', '%');"];
-        
-        $delimiter = implode(" AND ", $where_clause);
-        $delimiter = " WHERE ".$delimiter;
-        getInventory($delimiter);
-    }
+    $brand = explode('=', $brand_query)[1];
+    $vendor = explode('=', $vendor_query)[1];
+    $status = explode('=', $status_query)[1];
+    $category = explode('=', $category_query)[1];
+    $wholesale_cost = explode('=', $wholesale_cost_query)[1];
+    $retail_price = explode('=', $retail_price_query)[1];
+    $search = explode('=', $search_query)[1];
+
+    $where_clause = ["brand = ".$brand, "product.vendor_id = ".$vendor, "status_code = ".$status, "category =       ".$category, "wholesale_cost ".$wholesale_cost, "retail_price ".$retail_price, "product.name LIKE CONCAT('%', '".$search."', '%');"];
+
+    $delimiter = implode(" AND ", $where_clause);
+    $delimiter = " WHERE ".$delimiter;
+    
+    getInventory($delimiter);
 }
+
 function getInventory($delimiter) {
     $database = new DB();
     //OR...
