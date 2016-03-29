@@ -33,17 +33,14 @@ Controllers.controller('inventoryController', ['$scope',
                     $('.modal-fieldset').parent().hide();
                     $('.perform-count').parent().show();
                     $('.progress-bar').css('width',25+'%');
-
                 };
                 $scope.auditTabController = function () {
                     $tabs = ['perform-count', 'reconcile-inventory', 'assess-products', 'adjust-retail'];
                     $('.navs li').click(function () {
-
                         $switchActive = function ($tab) {
                             $tab.addClass('active');
                             $tab.siblings().removeClass('active');
                             $('.modal-fieldset').parent().hide();
-
                         };
                         for (var i = 0; i < $tabs.length; i++) {
                             if ($(this).hasClass($tabs[i])) {
@@ -55,7 +52,6 @@ Controllers.controller('inventoryController', ['$scope',
                         }
                     });
                 };
-
                 //currentDate() function: Returns the present date in mm/dd/yyyy format
                 $scope.currentDate = function () {
                     // instantiate new JavaScript Date Object
