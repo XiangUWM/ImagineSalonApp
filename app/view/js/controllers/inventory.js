@@ -4,6 +4,7 @@
  * NOTE: These vairables can only be used in the inventory.php template where the controller is routed to in the routeProvider in config/routes/routes.js
  */
 Controllers.controller('inventoryController', ['$scope',
+
   function ($scope) {
         // Run everything inside of this function when HTML/CSS is fully loaded...
         $(document).ready(function () {
@@ -32,7 +33,7 @@ Controllers.controller('inventoryController', ['$scope',
                     $('#perform-audit').toggle('slow');
                     $('.modal-fieldset').parent().hide();
                     $('.perform-count').parent().show();
-                    $('.progress-bar').css('width',25+'%');
+                    $('.progress-bar').css('width', 25 + '%');
                 };
                 $scope.auditTabController = function () {
                     $tabs = ['perform-count', 'reconcile-inventory', 'assess-products', 'adjust-retail'];
@@ -47,11 +48,12 @@ Controllers.controller('inventoryController', ['$scope',
                                 $switchActive($(this));
                                 $('.' + $tabs[i]).parent().fadeIn('slow');
                                 $('#audit-step').text('Step ' + (++i))
-                                $('.progress-bar').css('width',25*i+'%');
+                                $('.progress-bar').css('width', 25 * i + '%');
                             }
                         }
                     });
                 };
+
                 //currentDate() function: Returns the present date in mm/dd/yyyy format
                 $scope.currentDate = function () {
                     // instantiate new JavaScript Date Object
@@ -78,5 +80,6 @@ Controllers.controller('inventoryController', ['$scope',
                     $('#icon-toggler').find('img').toggle('fast');
                 };
             }) // end document.ready()
+        
 
 }]); // end inventoryController
