@@ -1,5 +1,5 @@
 <!--  Product Status Report  -->
-
+<?php require('../snippets/inventory/dailyreports.php'); ?>
 <!--  Popup Modal (hidden, overlapping)  -->
 <div class="modal" id="status-report" style="display:none; position: absolute; z-index:1000">
     <div class="modal-dialog">

@@ -1,24 +1,8 @@
 <!-- Require Snippets (modal popups) -->
-<?php 
-require('../snippets/inventory/opencount.php');
-require('../snippets/inventory/closecount.php'); 
-require('../snippets/inventory/dailyreport.php');
-require('../snippets/inventory/dailyreports.php'); 
-require('../snippets/inventory/status.php'); 
-require('../snippets/inventory/audit.php');
+<?php require('../snippets/inventory/audit.php');?> 
 
-?>
+<!--  Require Inventory model (SQL queries) -->
 
-    <!--  Require Inventory model (SQL queries) -->
-    <?php
-$db_path = '../../../model/inventory.php';
-if (file_exists($db_path)) {
-    require($db_path);
-    echo '<script>console.log("query is found");</script>';
-} else {
-        echo '<script>console.log("query is not found");</script>';
-}
-?>
 <div id="appendFilterResults"></div>
         <!-- Inventory Form Container with Bootswatch Theme Class 'Jumbotron'-->
         <div class="jumbotron" id="inventory-form-container">
@@ -46,7 +30,7 @@ if (file_exists($db_path)) {
         </div>
 
         <!-- Fielded Search -->
-        <form name="inventory-form" id="inventory-form" action="#/:filterResults">
+        <form name="inventory-form" id="inventory-form" action="#/inventory/:filterResults">
             <fieldset id="inventory-filter">
 
                 <!-- Legend & Filter form toggle switch - Span tag holds two icon images that are toggled which is called in view/js/controllers/inventory.js as 'toggleFilterSwitch()' -->
@@ -149,10 +133,10 @@ if (file_exists($db_path)) {
                     <th>UPC</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="inventory-tbody">
                 <?php
                     $http_referer = $_SERVER['HTTP_REFERER'];
-                    $needle = '?';
+                    $needle = '?brand';
                     $haystack = $http_referer;
                     if(strrpos($haystack, $needle) >= 1){
                         getQuery();
