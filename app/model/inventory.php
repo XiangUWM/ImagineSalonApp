@@ -2,9 +2,9 @@
 $db_path = '../../../../config/db/db.php';
 if (file_exists($db_path)) {
     require($db_path);
-    echo '<script>console.log("database connected");</script>';
+    echo '<script>console.log("database connected in the inventory model");</script>';
 } else {
-        echo '<script>console.log("database is not connected in the model");</script>';
+        echo '<script>console.log("database is not connected in the inventory model");</script>';
 }
 function getQuery() {
     $http_referer = $_SERVER['HTTP_REFERER'];
@@ -33,6 +33,7 @@ function getQuery() {
     $delimiter = " WHERE ".$delimiter;
     
     getInventory($delimiter);
+    
 }
 
 function getInventory($delimiter) {
@@ -43,7 +44,7 @@ function getInventory($delimiter) {
     $query = "select product_id, brand, product.name as name, vendor.name as vendor, status_code, size, wholesale_cost, retail_price, quantity, upc_code from product inner join vendor on(product.vendor_id = vendor.vendor_id)".$delimiter.";";
     $results = $database->get_results( $query );
     foreach( $results as $row ) {
-        echo '  <tr>
+        echo '  <tr id="inventory-row_'. $row['product_id'] .'">
                 <td>'. $row['product_id'] .'</td>
                 <td>'. $row['brand'] .'</td>
                 <td>'. $row['name'] .'</td>
@@ -56,4 +57,55 @@ function getInventory($delimiter) {
                 </tr>';
     }
 }
-?>
+function openCount() {
+    $http_referer = $_SERVER['HTTP_REFERER'];
+    $needle = 'q!';
+    $haystack = $http_referer;
+    if(strrpos($haystack, $needle) >= 1){
+       getOpenCountQuery();
+    } else {
+        echo '<script>console.log("HTTP REFERER NO QUERY: '.$http_referer.'")</script>';
+    }
+        
+}
+
+function getOpenCountQuery() { 
+    $http_referer = $_SERVER['HTTP_REFERER']; 
+    echo '<script>console.log("HTTP REFERER: '.$http_referer.'")</script>'; 
+    $query = filter_var(urldecode(explode('q!',$http_referer)[1]), FILTER_SANITIZE_STRING); 
+    $form = explode('&', $query); 
+    $params = [];
+    $sql = "";
+    foreach ($form as $input) { 
+        if ($input != null) {
+        echo '<script>console.log("Input: '.$input.'")</script>';  
+        array_push($params, $input);
+        } 
+    }
+    for($i = 0; $i < sizeof($params); $i+=2) {
+        $product = explode('product_id=',$params[$i])[1];
+        $quantity = explode('quantity=',$params[$i+1])[1];
+        
+        $sql = $sql.'UPDATE product SET '.$params[$i+1].' WHERE '.$params[$i].'; ';
+        echo '<script>console.log("'.$sql.'")</script>';
+        updateInventory($product, $quantity);
+    }
+}
+
+function updateInventory($product, $quantity) {
+   $database = new DB();
+    //OR...
+    $database = DB::getInstance();
+
+$update = array(
+    'quantity' => $quantity
+);
+//Add the WHERE clauses
+$where_clause = array(
+    'product_id' => $product
+);
+$updated = $database->update( 'product', $update, $where_clause, 1 );
+if( $updated )
+{
+    echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
+}}
