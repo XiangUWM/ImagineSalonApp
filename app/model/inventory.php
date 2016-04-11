@@ -57,19 +57,24 @@ function getInventory($delimiter) {
                 </tr>';
     }
 }
-function openCount() {
+function runCount($status) {
+    
+    
+    if($status) {
+        
+    }
     $http_referer = $_SERVER['HTTP_REFERER'];
     $needle = 'q!';
     $haystack = $http_referer;
     if(strrpos($haystack, $needle) >= 1){
-       getOpenCountQuery();
+       getCountQuery();
     } else {
         echo '<script>console.log("HTTP REFERER NO QUERY: '.$http_referer.'")</script>';
     }
         
 }
 
-function getOpenCountQuery() { 
+function getCountQuery() { 
     $http_referer = $_SERVER['HTTP_REFERER']; 
     echo '<script>console.log("HTTP REFERER: '.$http_referer.'")</script>'; 
     $query = filter_var(urldecode(explode('q!',$http_referer)[1]), FILTER_SANITIZE_STRING); 
@@ -109,3 +114,22 @@ if( $updated )
 {
     echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
 }}
+
+function updateCountList($status, $countList, $date) {
+    $database = new DB();
+    //OR...
+    $database = DB::getInstance();
+
+$update = array(
+    'status' => $status,
+    'count_list' => $countList
+);
+
+$where_clause = array(
+    'date' => $date
+);
+$updated = $database->update( 'count', $update, $where_clause, 1 );
+    if($updated) {
+        echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
+    }
+}

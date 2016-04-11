@@ -11,21 +11,21 @@
               - When clicked, they activate an AngularJs function specified in apps/view/js/controllers/inventory.js -->
             <content>
                 <h4 class="inventory-form-headers">Daily Activities</h4>
-                <a ng-click="openCount()" class="btn btn-default btn-sm">Opening Count</a>
-                <a ng-click="closeCount()" class="btn btn-default btn-sm">Closing Count</a>
-                <a ng-click="dailyReport()" class="btn btn-default btn-sm">Today's Report</a>
+                <a ng-click="toggleModal('#open-count')" class="btn btn-default btn-sm">Opening Count</a>
+                <a ng-click="toggleModal('#close-count')" class="btn btn-default btn-sm">Closing Count</a>
+                <a ng-click="toggleModal('#daily-report')" class="btn btn-default btn-sm">Today's Report</a>
             </content>
             <content>
                 <h4 class="inventory-form-headers">Reports</h4>
-                <a ng-click="dailyReports()" class="btn btn-default btn-sm">View Daily Reports</a>
-                <a ng-click="statusReport()" class="btn btn-default btn-sm">View Product Status</a>
-                <a ng-click="performAudit()" class="btn btn-default btn-sm">View Audit Reports</a>
+                <a ng-click="toggleModal('#daily-reports')" class="btn btn-default btn-sm">View Daily Reports</a>
+                <a ng-click="toggleModal('#status-report')" class="btn btn-default btn-sm">View Product Status</a>
+                <a ng-click="toggleModal('#audit-reports')" class="btn btn-default btn-sm">View Audit Reports</a>
             </content>
             <content>
                 <h4 class="inventory-form-headers">Auditing</h4>
-                <a ng-click="performAudit()" class="btn btn-default btn-sm">Perform Audit</a>
-                <a ng-click="currentAudit()" class="btn btn-default btn-sm">Current Audit Report</a>
-                <a ng-click="updateProducts()" class="btn btn-default btn-sm">Update Product List</a>
+                <a ng-click="toggleModal('#perform-audit')" class="btn btn-default btn-sm">Perform Audit</a>
+                <a ng-click="toggleModal('#current-audit')" class="btn btn-default btn-sm">Current Audit Report</a>
+                <a ng-click="toggleModal('#update-products')" class="btn btn-default btn-sm">Update Product List</a>
             </content>
         </div>
 

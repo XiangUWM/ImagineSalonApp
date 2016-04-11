@@ -7,7 +7,7 @@
 
             <!--  Modal Header with closing icon  -->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ng-click="dailyReports()" aria-hidden="true">x</button>
+                <button type="button" class="close" data-dismiss="modal" ng-click="toggleModal('#daily-reports')" aria-hidden="true">x</button>
                 <!--  NOTE: When user clicks close, ng-click calls the dailyReports() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
 
                 <!--  Modal title  -->

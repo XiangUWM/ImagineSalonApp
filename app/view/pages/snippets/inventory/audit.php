@@ -12,7 +12,7 @@
         <div class="modal-content">
             <div class="modal-header">
 
-                <button type="button" class="close" data-dismiss="modal" ng-click="performAudit()" aria-hidden="true">x</button>
+                <button type="button" class="close" data-dismiss="modal" ng-click="toggleModal('#perform-audit')" aria-hidden="true">x</button>
                 <h4 class="modal-title">Perform an Audit</h4>
             </div>
             <div class="modal-body">

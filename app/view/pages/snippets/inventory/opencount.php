@@ -15,7 +15,7 @@ if (file_exists($inventory_model_path)) {
             <div class="modal-content">
                 <!--  Modal Header with closing icon  -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="openCount()" aria-hidden="true">x</button>
+                    <button type="button" class="close" data-dismiss="modal" ng-click="toggleModal('#open-count')" aria-hidden="true">x</button>
                     <!--  NOTE: When user clicks close, ng-click calls the openCount() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
 
                     <!--  Modal title  -->
@@ -69,7 +69,7 @@ if (file_exists($inventory_model_path)) {
                     </table>
                     <input id="url_hash" type="hidden" name="url_hash" hidden="true" />
                     <!--  Close Modal or Save Changes  -->
-                    <button type="button" class="btn btn-default" ng-click="openCount()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" ng-click="toggleModal('#open-count')" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="saveOpenCount()" type="submit">Save changes</button>
 
                 </div>

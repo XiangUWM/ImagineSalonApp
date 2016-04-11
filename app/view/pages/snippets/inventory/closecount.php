@@ -6,7 +6,7 @@
         <div class="modal-content">
             <!--  Modal Header with closing icon  -->
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ng-click="closeCount()" aria-hidden="true">x</button>
+                <button type="button" class="close" data-dismiss="modal" ng-click="toggleModal('#close-count')" aria-hidden="true">x</button>
                 <!--  NOTE: When user clicks close, ng-click calls the closeCount() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
 
                 <!--  Modal title  -->
@@ -101,7 +101,7 @@
                 </table>
 
                 <!--  Close Modal or Save Changes  -->
-                <button type="button" class="btn btn-default" ng-click="closeCount()" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" ng-click="toggleModal('#close-count')" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
             <!-- /.modal-footer -->

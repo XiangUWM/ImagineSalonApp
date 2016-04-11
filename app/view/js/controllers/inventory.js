@@ -10,24 +10,8 @@ Controllers.controller('inventoryController', ['$scope',
         $(document).ready(function () {
 
                 //openCount() function: Toggles the visibility of the Opening Inventory Count modal
-                $scope.openCount = function () {
-                    $('#open-count').toggle('slow');
-                };
-
-                //closeCount() function: Toggles the visibility of the Closing Inventory Count modal
-                $scope.closeCount = function () {
-                    $('#close-count').toggle('slow');
-                };
-
-                //dailyReport() function: Toggles the visibility of the Open Inventory Count modal
-                $scope.dailyReport = function () {
-                    $('#daily-report').toggle('slow');
-                };
-                $scope.dailyReports = function () {
-                    $('#daily-reports').toggle('slow');
-                };
-                $scope.statusReport = function () {
-                    $('#status-report').toggle('slow');
+                $scope.toggleModal = function ($id) {
+                    $($id).toggle('slow');
                 };
                 $scope.performAudit = function () {
                     $('#perform-audit').toggle('slow');
