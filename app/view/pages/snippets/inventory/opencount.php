@@ -64,7 +64,7 @@ if (file_exists($inventory_model_path)) {
                             </tr>
                         </thead>
                         <tbody id="open-count-tbody">
-                            <?php openCount(); ?>
+                            <?php runCount('open'); ?>
                         </tbody>
                     </table>
                     <input id="url_hash" type="hidden" name="url_hash" hidden="true" />

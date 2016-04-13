@@ -57,12 +57,8 @@ function getInventory($delimiter) {
                 </tr>';
     }
 }
-function runCount($status) {
+function runCount($period) {
     
-    
-    if($status) {
-        
-    }
     $http_referer = $_SERVER['HTTP_REFERER'];
     $needle = 'q!';
     $haystack = $http_referer;
@@ -87,17 +83,22 @@ function getCountQuery() {
         array_push($params, $input);
         } 
     }
+//    $data = 'quanity=0';
+//    $where_clause = 'product_id is NOT NULL';
+//    $sql = 'UPDATE product SET '.$data.' WHERE '.$where_clause.';';
+//    updateInventory($data, $where_clause);
     for($i = 0; $i < sizeof($params); $i+=2) {
         $product = explode('product_id=',$params[$i])[1];
         $quantity = explode('quantity=',$params[$i+1])[1];
         
         $sql = $sql.'UPDATE product SET '.$params[$i+1].' WHERE '.$params[$i].'; ';
         echo '<script>console.log("'.$sql.'")</script>';
-        updateInventory($product, $quantity);
+        updateInventory($quantity, $product);
     }
 }
 
-function updateInventory($product, $quantity) {
+
+function updateInventory($quantity, $product) {
    $database = new DB();
     //OR...
     $database = DB::getInstance();
@@ -114,22 +115,3 @@ if( $updated )
 {
     echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
 }}
-
-function updateCountList($status, $countList, $date) {
-    $database = new DB();
-    //OR...
-    $database = DB::getInstance();
-
-$update = array(
-    'status' => $status,
-    'count_list' => $countList
-);
-
-$where_clause = array(
-    'date' => $date
-);
-$updated = $database->update( 'count', $update, $where_clause, 1 );
-    if($updated) {
-        echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
-    }
-}

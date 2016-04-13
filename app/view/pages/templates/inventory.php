@@ -1,6 +1,13 @@
 <!-- Require Snippets (modal popups) -->
-<?php require('../snippets/inventory/audit.php');?> 
-
+<?php
+$snippet_paths = '../snippets/inventory/audit.php';
+if (file_exists($snippet_paths)) {
+    require($snippet_paths);
+    echo '<script>console.log("Inventory snippets are found");</script>';
+} else {
+        echo '<script>console.log("Inventory snippets are not found");</script>';
+}
+?>
 <!--  Require Inventory model (SQL queries) -->
 
 <div id="appendFilterResults"></div>
@@ -141,6 +148,7 @@
                     if(strrpos($haystack, $needle) >= 1){
                         getQuery();
                     } else
+                        echo '<script>console.log("Getting full inventory...")</script>';
                         getInventory(null); ?>
             </tbody>
         </table>
