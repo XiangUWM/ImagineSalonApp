@@ -710,7 +710,7 @@ VALUES
 
 LOCK TABLES `appointment` WRITE;
 
-INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_datetime`)
+INSERT INTO `appointment` (`service_id`, `customer_id`, `staff_id`, `status_code`, `start_timestamp`)
 VALUES
 	(1000, 107, 1235, 700, '2016-03-21 08:30'),
     (2010, 282, 2182, 800, '2016-03-18 15:45'),
