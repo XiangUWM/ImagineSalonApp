@@ -35,6 +35,14 @@ app.config(['$routeProvider',
             templateUrl: 'app/view/pages/templates/inventory.php',
             controller: 'inventoryController' // Use the inventoryController from the 'Controllers' module
         }).
+        when('/inventory/:filterResults', {
+            templateUrl: 'app/view/pages/templates/inventory.php',
+            controller: 'inventoryController'// Use the inventoryController from the 'Controllers' module
+        }).
+        when('/inventory/:openCount', {
+            templateUrl: 'app/view/pages/templates/inventory.php',
+            controller: 'inventoryController'// Use the inventoryController from the 'Controllers' module
+        }).
         when('/settings', { // Settings - go to Settings tab template
             templateUrl: 'app/view/pages/templates/settings.php'
         }).

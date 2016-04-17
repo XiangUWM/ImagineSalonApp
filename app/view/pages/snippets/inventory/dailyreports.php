@@ -1,5 +1,5 @@
 <!--  Daily Reports List ]Output Screen  -->
-
+<?php require('../snippets/inventory/dailyreport.php');?>
 <!--  Popup Modal (hidden, overlapping)  -->
 <div class="modal" id="daily-reports" style="display:none; position: absolute; z-index:1000">
     <div class="modal-dialog">

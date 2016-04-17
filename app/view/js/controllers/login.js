@@ -68,6 +68,10 @@ Controllers.controller('loginController', ['$scope',
             {
                 'name': 'Lee',
                 'password': '2222'
+            },
+             {
+                'name': 'Admin',
+                'password': 'admin'
             }
         ];
   }]);

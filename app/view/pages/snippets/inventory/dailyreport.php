@@ -1,4 +1,5 @@
 <!--  Daily Report Output Screen  -->
+<?php require('../snippets/inventory/closecount.php'); ?>
 
 <!--  Popup Modal (hidden, overlapping)  -->
 <div class="modal" id="daily-report" style="display:none; position: absolute; z-index:1000">

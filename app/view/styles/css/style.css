@@ -32,6 +32,9 @@ fieldset {
     text-align: center;
 }
 
+.filter-results:nth-of-type(7) {
+    width: 10%;
+}
 
 /*********** ID's *************/
 
@@ -49,12 +52,21 @@ fieldset {
     margin: 0.5%;
 }
 
+#inventory-form-submit {
+    height: 15%;
+    float: right;
+    width: 105%;
+    margin: 1%;
+}
 
 /*********** Media Screens *************/
 
 @media screen and (max-width: 768px) {
     #dropdown-menu-profile {
         top: 31px;
+    }
+    .filter-results:nth-of-type(7) {
+    width: 24%;
     }
 }
 

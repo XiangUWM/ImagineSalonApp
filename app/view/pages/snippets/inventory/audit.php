@@ -5,6 +5,8 @@
 4. Product Trends
 5. Retail Adjustment
 -->
+<?php require('../snippets/inventory/status.php'); ?>
+
 <div class="modal" id="perform-audit" ng-controller="auditTabController">
     <div class="modal-dialog">
         <div class="modal-content">

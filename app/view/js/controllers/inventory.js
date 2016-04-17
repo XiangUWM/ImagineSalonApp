@@ -4,6 +4,7 @@
  * NOTE: These vairables can only be used in the inventory.php template where the controller is routed to in the routeProvider in config/routes/routes.js
  */
 Controllers.controller('inventoryController', ['$scope',
+
   function ($scope) {
         // Run everything inside of this function when HTML/CSS is fully loaded...
         $(document).ready(function () {
@@ -32,25 +33,22 @@ Controllers.controller('inventoryController', ['$scope',
                     $('#perform-audit').toggle('slow');
                     $('.modal-fieldset').parent().hide();
                     $('.perform-count').parent().show();
-                    $('.progress-bar').css('width',25+'%');
-
+                    $('.progress-bar').css('width', 25 + '%');
                 };
                 $scope.auditTabController = function () {
                     $tabs = ['perform-count', 'reconcile-inventory', 'assess-products', 'adjust-retail'];
                     $('.navs li').click(function () {
-
                         $switchActive = function ($tab) {
                             $tab.addClass('active');
                             $tab.siblings().removeClass('active');
                             $('.modal-fieldset').parent().hide();
-
                         };
                         for (var i = 0; i < $tabs.length; i++) {
                             if ($(this).hasClass($tabs[i])) {
                                 $switchActive($(this));
                                 $('.' + $tabs[i]).parent().fadeIn('slow');
                                 $('#audit-step').text('Step ' + (++i))
-                                $('.progress-bar').css('width',25*i+'%');
+                                $('.progress-bar').css('width', 25 * i + '%');
                             }
                         }
                     });
@@ -82,5 +80,6 @@ Controllers.controller('inventoryController', ['$scope',
                     $('#icon-toggler').find('img').toggle('fast');
                 };
             }) // end document.ready()
+        
 
 }]); // end inventoryController
