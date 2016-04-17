@@ -152,7 +152,7 @@
                         </div>
                     <div id="orders-div" hidden="true">
                         <h4>Orders div </h4>
-                        <?php ?>
+                        <?php viewOrders(); ?>
                     </div>
                     </div>
                     <!--  /.modal-body  -->

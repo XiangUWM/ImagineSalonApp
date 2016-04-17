@@ -143,4 +143,26 @@ $updated = $database->update( 'product', $update, $where_clause, 1 );
 if( $updated )
 {
     echo '<script>console.log("Successfully updated inventory: product no. '.$where_clause['product_id']. ' | quantity = '. $update['quantity'].'")</script>';
-}}
+}}; 
+
+function viewOrders() {
+    echo '<script>console.log("Viewing Orders..");</script>';
+    $database = new DB(); 
+    //OR...
+    $database = DB::getInstance();
+    
+    $query = "SELECT name, product_list, order_timestamp FROM `order`LEFT JOIN `vendor` ON order.vendor_id = vendor.vendor_id;";
+    $results = $database->get_results($query);
+    echo '<table class="table table-striped table-hover"><thead><th>Vendor</th><th>Items</th><th>Date</th></thead><tbody>';
+    foreach($results as $result) {
+        $vendor = vendor['name'];
+        $product_list = order['product_list'];
+        $order_timestamp = order['order_timestamp'];
+        echo '<tr><td>'.$vendor.'</td><td>'.$product_list.'</td><td>'.$order_timestamp.'</td></tr>';
+        
+    }
+    echo '</tbody></table>';
+    
+    
+    
+};
