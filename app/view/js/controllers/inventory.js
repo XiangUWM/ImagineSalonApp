@@ -169,42 +169,49 @@ Controllers.controller('inventoryController', ['$scope',
                     $('#remove-products-div').show();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').hide();
+                    $('#orders-div').hide();
 
                 }
                 if ($tab == 'Create Orders') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').show();
                     $('#update-shipments-div').hide();
+                    $('#orders-div').hide();
 
                 }
                 if ($tab == 'Update Shipments') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').show();
-               
+                    $('#orders-div').hide();
+
                 }
                 if ($tab == 'Pending Orders') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').hide();
-                
+                    $('#orders-div').show();
+
                 }
                 if ($tab == 'Active Orders') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').hide();
-               
+                    $('#orders-div').show();
+
                 }
                 if ($tab == 'Shipped Orders') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').hide();
+                    $('#orders-div').show();
                 
                 }
                 if ($tab == 'All Orders') {
                     $('#remove-products-div').hide();
                     $('#create-orders-div').hide();
                     $('#update-shipments-div').hide();
+                    $('#orders-div').show();
                 }
 
             });

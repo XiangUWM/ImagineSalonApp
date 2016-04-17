@@ -150,8 +150,9 @@
                                 </label>
                             </div>
                         </div>
-                    <div id="update-shipments-div" hidden="true">
-                        
+                    <div id="orders-div" hidden="true">
+                        <h4>Orders div </h4>
+                        <?php ?>
                     </div>
                     </div>
                     <!--  /.modal-body  -->
