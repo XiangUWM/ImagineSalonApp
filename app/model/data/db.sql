@@ -210,6 +210,16 @@ CREATE TABLE `order` (
     PRIMARY KEY             (`order_id`)
 );
 
+CREATE TABLE `removed_product` (
+    `removal_id`          int(6) NOT NULL AUTO_INCREMENT,
+    `product_id`          int(4) NOT NULL,
+    `quantity_removed`    int(4) NOT NULL,
+    `removal_timestamp`   timestamp NOT NULL DEFAULT current_timestamp,
+    `reason`              char(10) NOT NULL,
+    `sold_for`            decimal(5,2),
+    PRIMARY KEY           (`removal_id`)
+);
+
 CREATE TABLE `example_phpmvc` (
   `group_id`        int(11) unsigned NOT NULL AUTO_INCREMENT,
   `group_parent`    int(11) NOT NULL DEFAULT '0',
@@ -217,65 +227,5 @@ CREATE TABLE `example_phpmvc` (
   PRIMARY KEY       (`group_id`)
 );
 
-ALTER TABLE customer
-ADD FOREIGN KEY (discount_type) 
-REFERENCES discount(discount_type),
-    ADD FOREIGN KEY (preferred_staff)
-    REFERENCES staff(staff_id);
 
-ALTER TABLE appointment
-ADD FOREIGN KEY (service_id)
-REFERENCES service(service_id),
-    ADD FOREIGN KEY (customer_id)
-    REFERENCES customer(customer_id),
-    ADD FOREIGN KEY (promotion_id)
-    REFERENCES promotion(promotion_id),
-    ADD FOREIGN KEY (staff_id)
-    REFERENCES staff(staff_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-
-ALTER TABLE staff
-ADD FOREIGN KEY (role_id)
-REFERENCES role(role_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE service
-ADD FOREIGN KEY (add_on)
-REFERENCES add_on_service(add_on_id),
-    ADD FOREIGN KEY (role_id)
-    REFERENCES role(role_id),
-    ADD FOREIGN KEY (availability_id)
-    REFERENCES availability(availability_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE product
-ADD FOREIGN KEY (vendor_id)
-REFERENCES vendor(vendor_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE resource
-ADD FOREIGN KEY (availability_id)
-REFERENCES availability(availability_id),
-    ADD FOREIGN KEY (status_code)
-    REFERENCES status(status_code);
-    
-ALTER TABLE promotion
-ADD FOREIGN KEY (discount_type)
-REFERENCES discount(discount_type);
-
-ALTER TABLE shift
-ADD FOREIGN KEY (staff_id)
-REFERENCES staff(staff_id);
-
-ALTER TABLE availability
-ADD FOREIGN KEY (staff_id)
-REFERENCES staff(staff_id),
-    ADD FOREIGN KEY (resource_id)
-    REFERENCES resource(resource_id),
-    ADD FOREIGN KEY (service_id)
-    REFERENCES service(service_id);
     

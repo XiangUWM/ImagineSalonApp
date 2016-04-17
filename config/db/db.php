@@ -5,7 +5,7 @@
  define( 'DB_USER', 'root' ); // set database user
  define( 'DB_PASS', 'siC10Ne.dr4mp' ); // set database password
  define( 'DB_NAME', 'imagine_salon' ); // set database name
- define( 'SEND_ERRORS_TO', 'goartsyllc@gmail.com' ); //set email notification email address
+// define( 'SEND_ERRORS_TO', 'omierwalls@gmail.com' ); //set email notification email address
  define( 'DISPLAY_DEBUG', true ); //display db errors?
 
  //Initiate the class

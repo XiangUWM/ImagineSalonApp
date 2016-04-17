@@ -36,6 +36,10 @@ fieldset {
     width: 10%;
 }
 
+.add-line-btn {
+    border-radius: 100%;
+    top: 5%;
+}
 /*********** ID's *************/
 
 #logo {

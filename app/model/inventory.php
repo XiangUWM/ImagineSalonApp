@@ -60,20 +60,22 @@ function getInventory($delimiter) {
 function runCount($period) {
     
     $http_referer = $_SERVER['HTTP_REFERER'];
-    $needle = 'q!';
+    $needle = 'q='.$period.'-count!';
     $haystack = $http_referer;
     if(strrpos($haystack, $needle) >= 1){
-       getCountQuery();
+       getCountQuery($period);
+       saveCountData($period, $http_referer);
     } else {
         echo '<script>console.log("HTTP REFERER NO QUERY: '.$http_referer.'")</script>';
     }
         
 }
 
-function getCountQuery() { 
+function getCountQuery($period) { 
     $http_referer = $_SERVER['HTTP_REFERER']; 
     echo '<script>console.log("HTTP REFERER: '.$http_referer.'")</script>'; 
-    $query = filter_var(urldecode(explode('q!',$http_referer)[1]), FILTER_SANITIZE_STRING); 
+    $count = 'q='.$period.'-count!';
+    $query = filter_var(urldecode(explode($count, $http_referer)[1]), FILTER_SANITIZE_STRING); 
     $form = explode('&', $query); 
     $params = [];
     $sql = "";
@@ -83,10 +85,7 @@ function getCountQuery() {
         array_push($params, $input);
         } 
     }
-//    $data = 'quanity=0';
-//    $where_clause = 'product_id is NOT NULL';
-//    $sql = 'UPDATE product SET '.$data.' WHERE '.$where_clause.';';
-//    updateInventory($data, $where_clause);
+    resetInventory();
     for($i = 0; $i < sizeof($params); $i+=2) {
         $product = explode('product_id=',$params[$i])[1];
         $quantity = explode('quantity=',$params[$i+1])[1];
@@ -96,7 +95,37 @@ function getCountQuery() {
         updateInventory($quantity, $product);
     }
 }
+function saveCountData($period, $query) {
+    $database = new DB();
+    //OR...
+    $database = DB::getInstance();
+    
+    $count_date = date("Y-m-d");
+    $data = array(
+           'count_date' => $count_date, 
+           'period' => $period, 
+           'count_data' => $query
+      );
+    
+     $saveCount = $database->insert( 'inventory_count', $data );
+    if($saveCount) {
+        foreach ($data as $field => $value) { 
+        echo '<script>console.log("inventory_count: '.$field.' = '.$value.'")</script>';  
+    } 
+    }else {
+                    echo '<script>console.log("inventory_count not saved.")</script>';  
 
+        }
+}
+function resetInventory() {
+   $database = new DB();
+    //OR...
+    $database = DB::getInstance();
+    $update = array(
+    'quantity' => 0
+);
+    $reset = $database->update('product', $update, null, null);
+}
 
 function updateInventory($quantity, $product) {
    $database = new DB();
@@ -113,5 +142,5 @@ $where_clause = array(
 $updated = $database->update( 'product', $update, $where_clause, 1 );
 if( $updated )
 {
-    echo '<script>console.log("Successfully updated '.$where_clause['product_id']. ' to '. $update['quantity'].'")</script>';
+    echo '<script>console.log("Successfully updated inventory: product no. '.$where_clause['product_id']. ' | quantity = '. $update['quantity'].'")</script>';
 }}

@@ -50,7 +50,7 @@ if (file_exists($inventory_model_path)) {
 
                 </div>
                 <!--  /.modal-body  -->
-                <p id="openCountProductAddedText" style="padding-right:3%; float:right">This is text.</p>
+                <p id="openCountProductAddedText" style="padding-right:3%; float:right">Enter the product and quantity.</p>
                 <!--  Modal Footer  -->
                 <div class="modal-footer">
                     <!--  Table Output  -->
@@ -67,7 +67,7 @@ if (file_exists($inventory_model_path)) {
                             <?php runCount('open'); ?>
                         </tbody>
                     </table>
-                    <input id="url_hash" type="hidden" name="url_hash" hidden="true" />
+                    <input id="open_url_hash" type="hidden" name="url_hash" hidden="true" />
                     <!--  Close Modal or Save Changes  -->
                     <button type="button" class="btn btn-default" ng-click="toggleModal('#open-count')" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" onclick="saveOpenCount()" type="submit">Save changes</button>
@@ -81,7 +81,7 @@ if (file_exists($inventory_model_path)) {
     </div>
     <!-- /.modal -->
     <script>
-        var hash = "q!";
+        var open_hash = "q=open-count!";
         var addToOpenCount = function () {
             var $product = $("#openUPCInput").val();
             var $quantity = $("#openQuantityInput").val();
@@ -94,20 +94,20 @@ if (file_exists($inventory_model_path)) {
                 };
                 var query = jQuery.param(params);
                 console.log("product query: ", query);
-                hash = hash + query + "&";
-                console.log("addToOpenCount: ", hash);
-                $("#url_hash").val(hash);
+                open_hash = open_hash + query + "&";
+                console.log("addToOpenCount: ", open_hash);
+                $("#open_url_hash").val(open_hash);
                 $("#open-count").show();
                 $("#openCountProductAddedText").text($quantity + " unit(s) of item #" + $product + " have been added.");
                 addProductToOpenCountTable($product, $quantity);
             }
         
         var saveOpenCount = function () {
-            $href = $("#url_hash").val();
+            $href = $("#open_url_hash").val();
             window.location.search = $href;
             console.log("variable: ", $href);
             console.log("href: ", $href);
-            hash = "q!";
+            open_hash = "q=open-count!";
 
         }
         var addProductToOpenCountTable = function ($product, $quantity) {

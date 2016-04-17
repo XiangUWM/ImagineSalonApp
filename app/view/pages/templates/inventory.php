@@ -20,7 +20,7 @@ if (file_exists($snippet_paths)) {
                 <h4 class="inventory-form-headers">Daily Activities</h4>
                 <a ng-click="toggleModal('#open-count')" class="btn btn-default btn-sm">Opening Count</a>
                 <a ng-click="toggleModal('#close-count')" class="btn btn-default btn-sm">Closing Count</a>
-                <a ng-click="toggleModal('#daily-report')" class="btn btn-default btn-sm">Today's Report</a>
+                <a ng-click="toggleModal('#update-count')" class="btn btn-default btn-sm">Update Count</a>
             </content>
             <content>
                 <h4 class="inventory-form-headers">Reports</h4>
@@ -149,6 +149,7 @@ if (file_exists($snippet_paths)) {
                         getQuery();
                     } else
                         echo '<script>console.log("Getting full inventory...")</script>';
-                        getInventory(null); ?>
+                        getInventory(null); 
+                ?>
             </tbody>
         </table>

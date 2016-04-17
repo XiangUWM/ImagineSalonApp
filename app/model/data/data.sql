@@ -746,3 +746,78 @@ VALUES
 	(27,2,'Databases'),
 	(28,2,'MySQL');
 
+LOCK TABLES customer WRITE;
+ALTER TABLE customer
+ADD FOREIGN KEY (discount_type) 
+REFERENCES discount(discount_type),
+    ADD FOREIGN KEY (preferred_staff)
+    REFERENCES staff(staff_id);
+    
+LOCK TABLES appointment WRITE;
+ALTER TABLE appointment
+ADD FOREIGN KEY (service_id)
+REFERENCES service(service_id),
+    ADD FOREIGN KEY (customer_id)
+    REFERENCES customer(customer_id),
+    ADD FOREIGN KEY (promotion_id)
+    REFERENCES promotion(promotion_id),
+    ADD FOREIGN KEY (staff_id)
+    REFERENCES staff(staff_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+
+LOCK TABLES staff WRITE;
+ALTER TABLE staff
+ADD FOREIGN KEY (role_id)
+REFERENCES role(role_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+LOCK TABLES service WRITE;    
+ALTER TABLE service
+ADD FOREIGN KEY (add_on)
+REFERENCES add_on_service(add_on_id),
+    ADD FOREIGN KEY (role_id)
+    REFERENCES role(role_id),
+    ADD FOREIGN KEY (availability_id)
+    REFERENCES availability(availability_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+LOCK TABLES product WRITE;
+ALTER TABLE product
+ADD FOREIGN KEY (vendor_id)
+REFERENCES vendor(vendor_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+LOCK TABLES resource WRITE;
+ALTER TABLE resource
+ADD FOREIGN KEY (availability_id)
+REFERENCES availability(availability_id),
+    ADD FOREIGN KEY (status_code)
+    REFERENCES status(status_code);
+    
+LOCK TABLES promotion WRITE;
+ALTER TABLE promotion
+ADD FOREIGN KEY (discount_type)
+REFERENCES discount(discount_type);
+
+LOCK TABLES shift WRITE;
+ALTER TABLE shift
+ADD FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id);
+
+LOCK TABLES availability WRITE;
+ALTER TABLE availability
+ADD FOREIGN KEY (staff_id)
+REFERENCES staff(staff_id),
+    ADD FOREIGN KEY (resource_id)
+    REFERENCES resource(resource_id),
+    ADD FOREIGN KEY (service_id)
+    REFERENCES service(service_id);
+    
+LOCK TABLES removed_product WRITE; 
+ALTER TABLE removed_product
+ADD FOREIGN KEY (product_id)
+REFERENCES product(product_id);

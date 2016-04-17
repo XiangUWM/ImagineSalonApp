@@ -10,13 +10,13 @@
                     <!--  NOTE: When user clicks close, ng-click calls the closeCount() function will be called from inventoryController located in app/view/js/controllers/inventory.js which is specified in the AngularJs RouteProvider in the config/routes/routes.js file.  -->
 
                     <!--  Modal title  -->
-                    <h4 class="modal-title">Opening Inventory Count</h4>
+                    <h4 class="modal-title">Closing Inventory Count</h4>
                 </div>
                 <!--  /.modal-header  -->
                 <!--  Modal Body  -->
                 <div class="modal-body">
 
-                    <form name="close_count_add" id="close_count_form" onsubmit="addToOpenCount()">
+                    <form name="close_count_add" id="close_count_form" onsubmit="addToCloseCount()">
                         <!--  Form group with column width of 7  -->
                         <!--  NOTE: Max width of any line is 12 columns. If columns add up to more than 12, the overflowing objects will appear on the next line. -->
 
@@ -36,12 +36,12 @@
                         <br>
 
                         <!--  'Add' Button has a column width of 2  -->
-                        <button type="button" name="submit" style="margin-top:3px" type="submit" class="btn btn-primary" id="addOpenCountRow" onclick="addToOpenCount()" form="close_count_add">Add</button>
+                        <button type="button" name="submit" style="margin-top:3px" type="submit" class="btn btn-primary" id="addCloseCountRow" onclick="addToCloseCount()" form="close_count_add">Add</button>
                     </form>
 
                 </div>
                 <!--  /.modal-body  -->
-                <p id="closeCountProductAddedText" style="padding-right:3%; float:right">This is text.</p>
+                <p id="closeCountProductAddedText" style="padding-right:3%; float:right">Enter the product and quantity.</p>
                 <!--  Modal Footer  -->
                 <div class="modal-footer">
                     <!--  Table Output  -->
@@ -58,10 +58,10 @@
                             <?php runCount('close'); ?>
                         </tbody>
                     </table>
-                    <input id="url_hash" type="hidden" name="url_hash" hidden="true" />
+                    <input id="close_url_hash" type="hidden" name="url_hash" hidden="true" />
                     <!--  Close Modal or Save Changes  -->
                     <button type="button" class="btn btn-default" ng-click="toggleModal('#close-count')" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="saveOpenCount()" type="submit">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="saveCloseCount()" type="submit">Save changes</button>
 
                 </div>
                 <!-- /.modal-footer -->
@@ -72,8 +72,8 @@
     </div>
     <!-- /.modal -->
     <script>
-        var hash = "q!";
-        var addToOpenCount = function () {
+        var close_hash = "q=close-count!";
+        var addToCloseCount = function () {
             var $product = $("#closeUPCInput").val();
             var $quantity = $("#closeQuantityInput").val();
             if ($product.length > 3) {
@@ -85,23 +85,23 @@
                 };
                 var query = jQuery.param(params);
                 console.log("product query: ", query);
-                hash = hash + query + "&";
-                console.log("addToOpenCount: ", hash);
-                $("#url_hash").val(hash);
+                close_hash = close_hash + query + "&";
+                console.log("addToCloseCount: ", close_hash);
+                $("#close_url_hash").val(close_hash);
                 $("#close-count").show();
                 $("#closeCountProductAddedText").text($quantity + " unit(s) of item #" + $product + " have been added.");
-                addProductToOpenCountTable($product, $quantity);
+                addProductToCloseCountTable($product, $quantity);
             }
         
-        var saveOpenCount = function () {
-            $href = $("#url_hash").val();
+        var saveCloseCount = function () {
+            $href = $("#close_url_hash").val();
             window.location.search = $href;
             console.log("variable: ", $href);
             console.log("href: ", $href);
-            hash = "q!";
+            close_hash = "q=close-count!";
 
         }
-        var addProductToOpenCountTable = function ($product, $quantity) {
+        var addProductToCloseCountTable = function ($product, $quantity) {
             $(document).ready(function () {
                 $id = document.getElementById("inventory-row_" + $product).children[0].innerHTML;
                 $brand = document.getElementById("inventory-row_" + $product).children[1].innerHTML;
