@@ -10,7 +10,7 @@
 
 //Make the connection. 
 
-$dbc = @mysql_connect ("localhost", "jlooper_Imagine", "Robs100Poodles")
+$dbc = @mysql_connect ("localhost", "root", "siC10Ne.dr4mp")
 
 OR die ('Could not connect to MySQL: ' . mysql_error());
 
@@ -18,7 +18,7 @@ OR die ('Could not connect to MySQL: ' . mysql_error());
 
 //Select the database (Change your db_name).
 
-@mysql_select_db("jlooper_ImagineSalon")
+@mysql_select_db("imagine_salon")
 
 
 
